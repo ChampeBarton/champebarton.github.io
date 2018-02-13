@@ -1,0 +1,113 @@
+US Census Blocks 2000
+
+Introduction:
+
+This dataset contains US Census Bureau 2000 data for the State of 
+Florida.  The data contains selected fields from the Summary 1 file that 
+includes information on total population, race, sex, age, and household.  This 
+data is at the block level, the smallest unit of census data.  Using GIS 
+techniques, it is possible to summarize the data by Block Group, Tract, Traffic 
+Analysis Zone (TAZ), Zip Code Tabulation Area (ZCTA), or County.
+
+File Naming Convention:
+
+The files are named cenblkxx.* where xx stands for the FGDL County 
+Code having the following associated county:
+
+01	Alachua
+02	Baker
+03	Bay
+04	Bradford
+05	Brevard
+06	Broward
+07	Calhoun
+08	Charlotte
+09	Citrus
+10	Clay
+11	Collier
+12	Columbia
+13	Miami-Dade*
+14	DeSoto
+15	Dixie
+16	Duval
+17	Escambia
+18	Flagler
+19	Franklin
+20	Gadsden
+21	Gilchrist
+22	Glades
+23	Gulf
+24	Hamilton
+25	Hardee
+26	Hendry
+27	Hernando
+28	Highlands
+29	Hillsborough
+30	Holmes
+31	Indian River
+32	Jackson
+33	Jefferson
+34	Lafayette
+35	Lake
+36	Lee
+37	Leon
+38	Levy
+39	Liberty
+40	Madison
+41	Manatee
+42	Marion
+43	Martin
+44	Monroe
+45	Nassau
+46	Okaloosa
+47	Okeechobee
+48	Orange
+49	Osceola
+50	Palm Beach
+51	Pasco
+52	Pinellas
+53	Polk
+54	Putnam
+55	St. Johns
+56	St. Lucie
+57	Santa Rosa
+58	Sarasota
+59	Seminole
+60	Sumter
+61	Suwannee
+62	Taylor
+63	Union
+64	Volusia
+65	Wakulla
+66	Walton
+67	Washington
+
+*Miami-Dade was previously named Dade
+
+Metadata, Census Tables and Help:
+
+In addition to the cenblk## shapefile, you'll also find metadata about the
+dataset in text and html formats; census tables containing 900+ additional
+census attributes; and help files that provide instructions for joining census
+tables to the shapefile and for extracting different geographic boundaries
+(e.g., TAZs, counties, etc.).
+
+The Census_tables directory contains supplementary tables from the Summary 1 
+file that can be joined to the shapefile.  The Summary 1 file has 39 different 
+tables associated with it.  In order to condense the Summary 1 file we chose 
+the 5 most important files as we saw fit (SF1, SF2, SF3, SF4, SF37).  These 5 
+tables have over 1000 attribute fields that have demographic data on total 
+population, race, sex, age, and household.  The dbf files are named SF1##, SF2##,
+SF3##, SF4##, SF37##.  The number represents the county code for the individual 
+county selected.
+
+The Census_help directory contains help files on GIS techniques used to display
+other census entities such as: Block Group, Tract, Traffic Analysis Zone (TAZ), 
+Zip Code Tabulation Area (ZCTA), or County; and to join the supplemental tables
+to the shapefile.  These help files include help for both ArcView 3.2 and 
+ArcGis 8.1.
+
+
+
+
+

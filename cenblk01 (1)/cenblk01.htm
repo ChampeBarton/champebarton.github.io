@@ -1,0 +1,1663 @@
+<HTML><HEAD>
+<TITLE> FGDL Documentation </TITLE>
+<STYLE>
+   pre { color: black; font-size: 12pt; font-weight: normal; font-family: courier; }
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#CC6633" ALINK="#FF9900">
+<P>
+<STRONG>FLORIDA GEOGRAPHIC DATA LIBRARY DOCUMENTATION</STRONG><BR>
+
+<P>
+<STRONG class="Title">TITLE: 2000 CENSUS BLOCKS</STRONG>
+<PRE>
+Geodataset Name:      CENBLK
+Geodataset Type:      SHAPE
+Geodataset Feature:   POLYGON
+</PRE>
+<P>
+<STRONG>GENERAL DESCRIPTION:</STRONG>
+<PRE>
+This dataset contains US Census Bureau 2000 data for the State of
+Florida.  The data contains selected fields from the Summary 1 file that
+includes information on total population, race, sex, age, and household.  This
+data is at the block level, the smallest unit of census data.  Using GIS
+techniques, it is possible to summarize the data by Block Group, Tract, Traffic
+Analysis Zone (TAZ), Zip Code Tabulation Area (ZCTA), or County.
+Additional demographic data from the Summary 1 is available as supplemental tables
+that can be joined to Cenblk.shp (see FEATURE ATTRIBUTE TABLES CODES AND VALUES -
+Supplemental Tables).
+</PRE>
+<PRE>
+DATA SOURCE(S):                   U.S. Census Bureau
+SCALE OF ORIGINAL SOURCE MAPS:    1:100000
+DATE OF AUTOMATION OR SOURCE:     2000
+GEODATASET EXTENT:                State of Florida
+</PRE>
+<STRONG>FEATURE ATTRIBUTE TABLES:</STRONG><PRE>Datafile Name: CENBLK.dbf
+ITEM NAME     WIDTH       TYPE      PRECISION
+SHAPE            8        Shapepoly    0
+ID               8        Number       0
+FIPSSTCO         5        Character    -
+TRACT2000        6        Character    -
+BLOCK2000        4        Character    -
+STFID           15        Character    -
+STFID_RELA       8        Decimal      0
+FILEID           6        Character    -
+STUSAB           2        Character    -
+SUMLEV           3        Character    -
+GEOCOMP          2        Character    -
+STATE            2        Character    -
+COUNTY           3        Character    -
+COUNTYSC         2        Character    -
+TRACT            6        Character    -
+BLKGRP           1        Character    -
+BLOCK            4        Character    -
+ZCTA3            3        Character    -
+ZCTA5            5        Character    -
+AREALAND         8        Decimal      0
+AREAWATR         8        Decimal      0
+POP100           8        Decimal      0
+HU100            8        Decimal      0
+TAZ              6        Character    -
+TAZ2NOSPA       15        Character    -
+BGGRP_DISV      16        Character    -
+TRACT_DISV      16        Character    -
+TAZ_DISV        15        Character    -
+POP2000          8        Decimal      0
+WHITE            8        Decimal      0
+BLACK            8        Decimal      0
+AMERI_ES         8        Decimal      0
+ASIAN            8        Decimal      0
+HAWN_PI          8        Decimal      0
+OTHER            8        Decimal      0
+MULT_RACE        8        Decimal      0
+HISPANIC         8        Decimal      0
+MALES            8        Decimal      0
+FEMALES          8        Decimal      0
+AGE_UNDER5       8        Decimal      0
+AGE_5_17         8        Decimal      0
+AGE_18_21        8        Decimal      0
+AGE_22_29        8        Decimal      0
+AGE_30_39        8        Decimal      0
+AGE_40_49        8        Decimal      0
+AGE_50_64        8        Decimal      0
+AGE_65_UP        8        Decimal      0
+MED_AGE          8        Decimal      1
+MED_AGE_M        8        Decimal      1
+MED_AGE_F        8        Decimal      1
+HOUSEHOLDS       8        Decimal      0
+AVE_HH_SZ        8        Decimal      2
+HSEHLD_1_M       8        Decimal      0
+HSEHLD_1_F       8        Decimal      0
+MARHH_CHD        8        Decimal      0
+MARHH_NO_C       8        Decimal      0
+MHH_CHILD        8        Decimal      0
+FHH_CHILD        8        Decimal      0
+FAMILIES         8        Decimal      0
+AVE_FAM_SZ       8        Decimal      2
+HSE_UNITS        8        Decimal      0
+URBAN            8        Decimal      0
+RURAL            8        Decimal      0
+VACANT           8        Decimal      0
+OWNER_OCC        8        Decimal      0
+RENTER_OCC       8        Decimal      0
+ACRES           16        Decimal      3
+POPDENS         16        Decimal      4
+PCTMNRTY         3        Decimal      0
+LOGRECNO         8        Decimal      0
+DESCRIPT         8        Decimal      0
+</PRE>
+<P>
+<STRONG>FEATURE ATTRIBUTE TABLES CODES AND VALUES:</STRONG>
+<PRE>ITEM                 ITEM DESCRIPTION
+SHAPE                	Data attribute inherent to the ESRI shapefile format,
+                     	which defines the data as a point, polyline, or polygon.
+FIELD NAME           	Field Description
+ID                   	Internal Id
+FIPSSTCO             	State + County FIPS
+TRACT2000		Tract
+BLOCK2000		Block
+STFID			State + County + Tract + Block FIPS
+STFID_RELA		State + County + Tract + Block FIPS
+FILEID               	File Identification
+STUSAB               	State/US-Abbreviation (USPS)
+SUMLEV			Summary Level
+GEOCOMP			Geographic Component
+STATE			State (FIPS)
+COUNTY			County
+COUNTYSC		County Size Code
+TRACT			Census Tract
+BLKGRP			Block Group
+BLOCK			Block
+ZCTA3			ZIP Code Tabulation Area (3 digit)
+ZCTA5			ZIP Code Tabulation Area (5 digit)
+AREALAND		Area (land)
+AREAWATR		Area (water)
+POP100			Population Count (100%)
+HU100			Housing Count (100%)
+TAZ			Traffic Analysis Zone (TAZ)
+TAZ2NOSPA		TAZ with out spaces
+BGGRP_DISV		Dissolve field for Block Groups
+TRACT_DISV		Dissolve field for Tracts
+TAZ_DISV		Dissolve field for TAZ
+POP2000			Population 2000 (P007001)
+WHITE	 		White alone (P007002)
+BLACK			Black or african american alone (P007003)
+AMERI_ES		American indian and alaska native alone (P007004)
+ASIAN			Asian alone (P007005)
+HAWN_PI			Native hawaiian and other pacific islander alone (P007006)
+OTHER			Some other race alone (P007007)
+MULT_RACE		2 or more races (P007008)
+HISPANIC		People who are hispanic or latino (P011001)
+MALES			Males (P012002)
+FEMALES			Females (P012026)
+AGE_UNDER5		Male and female under 5 yrs (P012003 + P012027)
+AGE_5_17		Male and female 5 to 17 yrs (P012004-006 + P012028-030)
+AGE_18_21		Male and female 18 to 21 yrs (P012007-009 + P012031-033)
+AGE_22_29		Male and female 22 to 29 yrs (P012010-011 + P012034-035)
+AGE_30_39		Male and female 30 to 39 yrs (P012012-013 + P012036-037)
+AGE_40_49		Male and female 40 to 49 yrs (P012014-015 + P012038-039)
+AGE_50_64		Male and female 50 to 64 yrs (P012016-019 + P012040-043)
+AGE_65_UP		Male and female 65 yrs and over (P012020-025 + P012044-049)
+MED_AGE			Median age both sexes (P013001)
+MED_AGE_M		Median age males (P013002)
+MED_AGE_F		Median age females (P013003)
+HOUSEHOLDS		Households (P015001)
+AVE_HH_SZ		Average household size (P017001)
+HSEHLD_1_M		1-person household male householder (P018003)
+HSEHLD_1_F		1-person household female householder (P018004)
+MARHH_CHD		Family households married-couple family w/ own children
+                     under 18 yrs (P018008)
+MARHH_NO_C		Family households married-couple family no own children under
+                     18 yrs (P018009)
+MHH_CHILD		Family households other family male householder no wife
+                     present w/ own children under 18 yrs (P018012)
+FHH_CHILD		Family households other family female householder no husband
+                     present w/ own children under 18 yrs (P018015)
+FAMILIES		Families (P031001)
+AVE_FAM_SZ		Average family size (P033001)
+HSE_UNITS		Housing units (H001001)
+URBAN			Housing units urban (H002002)
+RURAL			Housing units rural (H002005)
+VACANT			Housing units vacant (H003003)
+OWNER_OCC		Housing units owner occupied (H004002)
+RENTER_OCC		Housing units renter occupied (H004003)
+ACRES                Total acres of block (calculated using x-tools in AV 3.2)
+POPDENS              Population density (pop2000/acres)
+PCTMNRTY             Percent Minority Population ((Pop2000-P004005)/Pop2000)X100
+LOGRECNO	       Logical Record Number (join field for tables)
+DESCRIPT		Calculated = POP2000 as number
+*Note: All Field Definitions that are followed by a (P######) or (H######) were
+taken from Geography Network.
+The following are additional demographic data from the Summary 1,
+available as supplemental tables. They can be joined to Cenblk.shp
+using the field "LOGRECNO".
+Note that each table is broken down into categories with a number within
+brackets representing the amount of fields within the category.
+Supplemental Tables
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Table (SF 1)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Item        Item Name
+Total Population [1]
+P001001     Total
+Urban and Rural [6]
+P002001     Total:
+P002002     (No Data) Urban:
+P002003     (No Data) Inside urbanized areas
+P002004     (No Data) a Inside urban clusters
+P002005     (No Data) a Rural
+P002006     Not defined for this file
+RACE [71]
+P003001     Total:
+P003002     Population of one race:
+P003003     White alone
+P003004     Black or African American alone
+P003005     American Indian and Alaska Native alone
+P003006     Asian alone
+P003007     Native Hawaiian and Other Pacific Islander alone
+P003008     Some other race alone
+P003009     Population of two or more races:
+P003010     Population of two races:
+P003011     White; Black or African American
+P003012     White; American Indian and Alaska Native
+P003013     White; Asian
+P003014     White; Native Hawaiian and Other Pacific Islander
+P003015     White; Some other race
+P003016     Black or African American; American Indian and Alaska Native
+P003017     Black or African American; Asian
+P003018     Black or African American; Native Hawaiian and Other Pacific Islander
+P003019     Black or African American; Some other race
+P003020     American Indian and Alaska Native; Asian
+P003021     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+            Islander
+P003022     American Indian and Alaska Native; Some other race
+P003023     Asian; Native Hawaiian and Other Pacific Islander
+P003024     Asian; Some other race
+P003025     Native Hawaiian and Other Pacific Islander; Some other race
+P003026     Population of three races:
+P003027     White; Black or African American; American Indian and Alaska Native
+P003028     White; Black or African American; Asian
+P003029     White; Black or African American; ;Native Hawaiian and Other Pacific
+            Islander
+P003030     White; Black or African American; Some other race
+P003031     White; American Indian and Alaska Native; Asian
+P003032     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+            Islander
+P003033     White; American Indian and Alaska Native; Some other race
+P003034     White; Asian; Native Hawaiian and Other Pacific Islander
+P003035     White; Asian; Some other race
+P003036     White; Native Hawaiian and Other Pacific Islander; Some other race
+P003037     Black or African American; American Indian and Alaska Native; Asian
+P003038     Black or African American; American Indian and Alaska Native; ;Native
+            Hawaiian and Other Pacific Islander
+P003039     Black or African American; American Indian and Alaska Native; ;Some other
+            race
+P003040     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+            Islander
+P003041     Black or African American; Asian; Some other race
+P003042     Black or African American; ;Native Hawaiian and Other Pacific Islander; Some
+            other race
+P003043     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+            Islander
+P003044     American Indian and Alaska Native; Asian; Some other race
+P003045     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003046     Asian; Native Hawaiian and Other Pacific Islander; Some other race
+P003047     Population of four races:
+P003048     White; Black or African American; American Indian and Alaska Native; ;Asian
+P003049     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P003050     White; Black or African American; American Indian and Alaska Native; ;Some
+	        other race
+P003051     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander
+P003052     White; Black or African American; Asian; ;Some other race
+P003053     White; Black or African American; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003054     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+            Pacific Islander
+P003055     White; American Indian and Alaska Native; Asian; ;Some other race
+P003056     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003057     White; Asian; Native Hawaiian and Other Pacific Islander; ;Some other race
+P003058     Black or African American; American Indian and Alaska Native; Asian; ;Native
+	        Hawaiian and Other Pacific Islander
+P003059     Black or African American; American Indian and Alaska Native; ;Asian; Some
+	        other race
+P003060     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P003061     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003062     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003063     Population of five races:
+P003064     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander
+P003065     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Some other race
+P003066     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P003067     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P003068     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+            Pacific Islander;  Some other race
+P003069     Black or African American; American Indian and Alaska Native; ;Asian; Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P003070     Population of six races:
+P003071     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander; Some other race
+HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE [73]
+P004001     Total:
+P004002     Hispanic or Latino
+P004003     Not Hispanic or Latino:
+P004004     Population of one race:
+P004005     White alone
+P004006     Black or African American alone
+P004007     American Indian and Alaska Native alone
+P004008     Asian alone
+P004009     Native Hawaiian and Other Pacific Islander alone
+P004010     Some other race alone
+P004011     Population of two or more races:
+P004012     Population of two races:
+P004013     White; Black or African American
+P004014     White; American Indian and Alaska Native
+P004015     White; Asian
+P004016     White; Native Hawaiian and Other Pacific Islander
+P004017     White; Some other race
+P004018     Black or African American; American Indian and Alaska Native
+P004019     Black or African American; Asian
+P004020     Black or African American; Native Hawaiian and Other Pacific Islander
+P004021     Black or African American; Some other race
+P004022     American Indian and Alaska Native; Asian
+P004023     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander
+P004024     American Indian and Alaska Native; Some other race
+P004025     Asian; Native Hawaiian and Other Pacific Islander
+P004026	    Asian; Some other race
+P004027     Native Hawaiian and Other Pacific Islander; Some other race
+P004028	    Population of three races:
+P004029     White; Black or African American; American Indian and Alaska Native
+P004030     White; Black or African American; Asian
+P004031     White; Black or African American; ;Native Hawaiian and Other Pacific
+	        Islander
+P004032     White; Black or African American; Some other race
+P004033     White; American Indian and Alaska Native; Asian
+P004034     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander
+P004035     White; American Indian and Alaska Native; Some other race
+P004036     White; Asian; Native Hawaiian and Other Pacific Islander
+P004037     White; Asian; Some other race
+P004038     White; Native Hawaiian and Other Pacific Islander; Some other race
+P004039     Black or African American; American Indian and Alaska Native; Asian
+P004040     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P004041     Black or African American; American Indian and Alaska Native; ;Some other
+	        race
+P004042     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander
+P004043     Black or African American; Asian;Some other race
+P004044     Black or African American; ;Native Hawaiian and Other Pacific Islander; Some
+	        other race
+P004045     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+	        Islander
+P004046     American Indian and Alaska Native; Asian; Some other race
+P004047     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004048     Asian; Native Hawaiian and Other Pacific Islander; Some other race
+P004049     Population of four races:
+P004050     White; Black or African American; American Indian and Alaska Native; ;Asian
+P004051     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P004052     White; Black or African American; American Indian and Alaska Native; ;Some
+	        other race
+P004053     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander
+P004054     White; Black or African American; Asian; ;Some other race
+P004055     White; Black or African American; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004056     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+	        Pacific Islander
+P004057     White; American Indian and Alaska Native; ;Asian; Some other race
+P004058     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004059     White; Asian; Native Hawaiian and Other Pacific Islander; ;Some other race
+P004060     Black or African American; American Indian and Alaska Native; Asian; ;Native
+	        Hawaiian and Other Pacific Islander
+P004061     Black or African American; American Indian and Alaska Native; ;Asian; Some
+	        other race
+P004062     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P004063     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004064     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004065     Population of five races:
+P004066     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander
+P004067     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Some other race
+P004068     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P004069     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P004070     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+	        Pacific Islander; Some other race
+P004071     Black or African American; American Indian and Alaska Native; ;Asian; Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P004072     Population of six races:
+P004073     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander; Some other race
+RACE FOR THE POPULATION 18 YEARS AND OVER [71]
+P005001     Total:
+P005002     Population of one race:
+P005003     White alone
+P005004     Black or African American alone
+P005005     American Indian and Alaska Native alone
+P005006     Asian alone
+P005007     Native Hawaiian and Other Pacific Islander alone
+P005008     Some other race alone
+P005009     Population of two or more races
+P005010     Population of two races:
+P005011     White; Black or African American
+P005012     White; American Indian and Alaska Native
+P005013     White; Asian
+P005014     White; Native Hawaiian and Other Pacific Islander
+P005015     White; Some other race
+P005016     Black or African American; American Indian and Alaska Native
+P005017     Black or African American; Asian
+P005018     Black or African American; Native Hawaiian and Other Pacific Islander
+P005019     Black or African American; Some other race
+P005020     American Indian and Alaska Native; Asian
+P005021     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific Islander
+P005022     American Indian and Alaska Native; Some other race
+P005023     Asian; Native Hawaiian and Other Pacific Islander
+P005024     Asian; Some other race
+P005025     Native Hawaiian and Other Pacific Islander; Some other race
+P005026     Population of three races:
+P005027     White; Black or African American; American Indian and Alaska Native
+P005028     White; Black or African American; Asian
+P005029     White; Black or African American; ;Native Hawaiian and Other Pacific Islander
+P005030     White; Black or African American; Some other race
+P005031     White; American Indian and Alaska Native; Asian
+P005032     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific Islander
+P005033     White; American Indian and Alaska Native; Some other race
+P005034     White; Asian; Native Hawaiian and Other Pacific Islander
+P005035     White; Asian; Some other race
+P005036 	White; Native Hawaiian and Other Pacific Islander; Some other race
+P005037     Black or African American; American Indian and Alaska Native; Asian
+P005038     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P005039     Black or African American; American Indian and Alaska Native; ;Some other race
+P005040     Black or African American; Asian; ;Native Hawaiian and Other Pacific Islander
+P005041     Black or African American; Asian; Some other race
+P005042     Black or African American; ;Native Hawaiian and Other Pacific Islander; Some
+	        other race
+P005043     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific Islander
+P005044     American Indian and Alaska Native; Asian; Some other race
+P005045     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005046     Asian; Native Hawaiian and Other Pacific Islander; Some other race
+P005047     Population of four races:
+P005048     White; Black or African American; American Indian and Alaska Native; ;Asian
+P005049     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P005050     White; Black or African American; American Indian and Alaska Native; ;Some
+	        other race
+P005051     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander
+P005052     White; Black or African American; Asian; ;Some other race
+P005053     White; Black or African American; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005054     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+	        Pacific Islander
+P005055     White; American Indian and Alaska Native; Asian; ;Some other race
+P005056     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005057     White; Asian; Native Hawaiian and Other Pacific Islander; ;Some other race
+P005058     Black or African American; American Indian and Alaska Native; Asian; ;Native
+	        Hawaiian and Other Pacific Islander
+P005059     Black or African American; American Indian and Alaska Native; Asian; ;Some
+	        other race
+P005060     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P005061     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005062     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005063     Population of five races:
+P005064     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander
+P005065     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Some other race
+P005066     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P005067     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P005068     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+	        Pacific Islander; Some other race
+P005069     Black or African American; American Indian and Alaska Native; ;Asian; Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P005070     Population of six races:
+P005071     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander; Some other race
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Table (SF 2)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Item 	Item Name
+HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER [73]
+P006001     Total:
+P006002     Hispanic or Latino
+P006003     Not Hispanic or Latino:
+P006004     Population of one race:
+P006005     White alone
+P006006     Black or African American alone
+P006007     American Indian and Alaska Native alone
+P006008     Asian alone
+P006009     Native Hawaiian and Other Pacific Islander alone
+P006010     Some other race alone
+P006011     Population of two or more races:
+P006012     Population of two races:
+P006013     White; Black or African American
+P006014     White; American Indian and Alaska Native
+P006015     White; Asian
+P006016     White; Native Hawaiian and Other Pacific Islander
+P006017     White; Some other race
+P006018     Black or African American; American Indian and Alaska Native
+P006019     Black or African American; Asian
+P006020     Black or African American; Native Hawaiian and Other Pacific Islander
+P006021     Black or African American; Some other race
+P006022     American Indian and Alaska Native; Asian
+P006023     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific Islander
+P006024     American Indian and Alaska Native; Some other race
+P006025     Asian; Native Hawaiian and Other Pacific Islander
+P006026     Asian; Some other race
+P006027     Native Hawaiian and Other Pacific Islander; Some other race
+P006028     Population of three races:
+P006029     White; Black or African American; American Indian and Alaska Native
+P006030     White; Black or African American; Asian
+P006031     White; Black or African American; ;Native Hawaiian and Other Pacific Islander
+P006032     White; Black or African American; Some other race
+P006033     White; American Indian and Alaska Native; Asian
+P006034     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific Islander
+P006035     White; American Indian and Alaska Native; Some other race
+P006036     White; Asian; Native Hawaiian and Other Pacific Islander
+P006037     White; Asian; Some other race
+P006038     White; Native Hawaiian and Other Pacific Islander; Some other race
+P006039     Black or African American; American Indian and Alaska Native; Asian
+P006040     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander
+P006041     Black or African American; American Indian and Alaska Native; ;Some other race
+P006042     Black or African American; Asian; ;Native Hawaiian and Other Pacific Islander
+P006043     Black or African American; Asian; Some other race
+P006044     Black or African American; ;Native Hawaiian and Other Pacific Islander; Some
+	        other race
+P006045     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific Islander
+P006046     American Indian and Alaska Native; Asian; Some other race
+P006047     American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006048     Asian; Native Hawaiian and Other Pacific Islander; Some other race
+P006049     Population of four races:
+P006050     White; Black or African American; American Indian and Alaska Native; ;Asian
+P006051     White; Black or African American; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific Islander
+P006052     White; Black or African American; American Indian and Alaska Native; ;Some other race
+P006053     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific Islander
+P006054     White; Black or African American; Asian; ;Some other race
+P006055     White; Black or African American; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006056     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific Islander
+P006057     White; American Indian and Alaska Native; Asian; ;Some other race
+P006058     White; American Indian and Alaska Native; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006059     White; Asian; Native Hawaiian and Other Pacific Islander; ;Some other race
+P006060     Black or African American; American Indian and Alaska Native; Asian; ;Native
+	        Hawaiian and Other Pacific Islander
+P006061     Black or African American; American Indian and Alaska Native; ;Asian; Some other race
+P006062     Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P006063     Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006064     American Indian and Alaska Native; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006065     Population of five races:
+P006066     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander
+P006067     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Some other race
+P006068     White; Black or African American; American Indian and Alaska Native; ;Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P006069     White; Black or African American; Asian; ;Native Hawaiian and Other Pacific
+	        Islander; Some other race
+P006070     White; American Indian and Alaska Native; Asian; ;Native Hawaiian and Other
+	        Pacific Islander; Some other race
+P006071     Black or African American; American Indian and Alaska Native; ;Asian; Native
+	        Hawaiian and Other Pacific Islander; Some other race
+P006072     Population of six races:
+P006073     White; Black or African American; American Indian and Alaska Native; ;Asian;
+	        Native Hawaiian and Other Pacific Islander; Some other race
+RACE [8]
+P007001	    Total:
+P007002     White alone
+P007003     Black or African American alone
+P007004     American Indian and Alaska Native alone
+P007005     Asian alone
+P007006     Native Hawaiian and Other Pacific Islander alone
+P007007     Some other race alone
+P007008     Two or more races
+HISPANIC OR LATINO BY RACE [17]
+P008001     Total:
+P008002     Not Hispanic or Latino:
+P008003     White alone
+P008004     Black or African American alone
+P008005     American Indian and Alaska Native alone
+P008006     Asian alone
+P008007     Native Hawaiian and Other Pacific Islander alone
+P008008     Some other race alone
+P008009	    Two or more races
+P008010     Hispanic or Latino:
+P008011     White alone
+P008012     Black or African American alone
+P008013     American Indian and Alaska Native alone
+P008014     Asian alone
+P008015     Native Hawaiian and Other Pacific Islander alone
+P008016     Some other race alone
+P008017     Two or more races
+RACE (TOTAL RACES TALLIED) [7]
+P009001     Total races tallied:
+P009002     White alone or in combination with one or more other races
+P009003     Black or African American alone or in combination with one or more other races
+P009004     American Indian and Alaska Native alone ;or in combination with one or more other races
+P009005     Asian alone or in combination with one or more other races
+P009006     Native Hawaiian and Other Pacific Islander alone ;or in combination with one or more other races
+P009007     Some other race alone ;or in combination with one or more other races
+HISPANIC OR LATINO BY RACE (TOTAL RACES TALLIED) [15]
+P010001     Total races tallied:
+P010002     Not Hispanic or Latino:
+P010003     White alone or in combination with one or more other races
+P010004     Black or African American alone ;or in combination with one or more other races
+P010005     American Indian and Alaska Native alone ;or in combination with one or more other races
+P010006     Asian alone or in combination with one or more other races
+P010007     Native Hawaiian and Other Pacific Islander alone ;or in combination with one
+	        or more other races
+P010008     Some other race alone ;or in combination with one or more other races
+P010009     Hispanic or Latino:
+P010010     White alone or in combination with one or more other races
+P010011     Black or African American alone ;or in combination with one or more other races
+P010012     American Indian and Alaska Native alone ;or in combination with one or more other races
+P010013     Asian alone or in combination with one or more other races
+P010014     Native Hawaiian and Other Pacific Islander alone ;or in combination with one
+	        or more other races
+P010015     Some other race alone ;or in combination with one or more other races
+HISPANIC OR LATINO [1]
+P011001     Total
+SEX BY AGE [49]
+P012001     Total:
+P012002     Male:
+P012003     Under 5 years
+P012004     5 to 9 years
+P012005     10 to 14 years
+P012006     15 to 17 years
+P012007	    18 and 19 years
+P012008	    20 years
+P012009	    21 years
+P012010	    22 to 24 years
+P012011	    25 to 29 years
+P012012	    30 to 34 years
+P012013	    35 to 39 years
+P012014	    40 to 44 years
+P012015	    45 to 49 years
+P012016	    50 to 54 years
+P012017	    55 to 59 years
+P012018	    60 and 61 years
+P012019	    62 to 64 years
+P012020	    65 and 66 years
+P012021	    67 to 69 years
+P012022	    70 to 74 years
+P012023	    75 to 79 years
+P012024	    80 to 84 years
+P012025	    85 years and over
+P012026	    Female:
+P012027	    Under 5 years
+P012028	    5 to 9 years
+P012029	    10 to 14 years
+P012030	    15 to 17 years
+P012031	    18 and 19 years
+P012032	    20 years
+P012033	    21 years
+P012034	    22 to 24 years
+P012035	    25 to 29 years
+P012036	    30 to 34 years
+P012037	    35 to 39 years
+P012038	    40 to 44 years
+P012039	    45 to 49 years
+P012040	    50 to 54 years
+P012041	    55 to 59 years
+P012042	    60 and 61 years
+P012043	    62 to 64 years
+P012044	    65 and 66 years
+P012045	    67 to 69 years
+P012046	    70 to 74 years
+P012047	    75 to 79 years
+P012048	    80 to 84 years
+P012049	    85 years and over
+MEDIAN AGE BY SEX [3]
+P013001	    Both sexes
+P013002	    Male
+P013003	    Female
+SEX BY AGE FOR THE POPULATION UNDER 20 YEARS [43]
+P014001	    Total:
+P014002	    Male:
+P014003	    Under 1 year
+P014004	    1 year
+P014005	    2 years
+P014006	    3 years
+P014007	    4 years
+P014008	    5 years
+P014009	    6 years
+P014010	    7 years
+P014011	    8 years
+P014012	    9 years
+P014013	    10 years
+P014014	    11 years
+P014015	    12 years
+P014016	    13 years
+P014017	    14 years
+P014018	    15 years
+P014019	    16 years
+P014020	    17 years
+P014021	    18 years
+P014022	    19 years
+P014023	    Female:
+P014024	    Under 1 year
+P014025	    1 year
+P014026	    2 years
+P014027	    3 years
+P014028	    4 years
+P014029	    5 years
+P014030	    6 years
+P014031	    7 years
+P014032	    8 years
+P014033	    9 years
+P014034	    10 years
+P014035	    11 years
+P014036	    12 years
+P014037	    13 years
+P014038	    14 years
+P014039	    15 years
+P014040	    16 years
+P014041	    17 years
+P014042	    18 years
+P014043	    19 years
+HOUSEHOLDS [1]
+P015001	    Total
+POPULATION IN HOUSEHOLDS [1]
+P016001	    Total
+AVERAGE HOUSEHOLD SIZE [1]
+P017001	    Average household size
+HOUSEHOLD SIZE, HOUSEHOLD TYPE, AND PRESENCE OF OWN CHILDREN [19]
+P018001	    Total:
+P018002	    1-person household:
+P018003	    Male householder
+P018004	    Female householder
+P018005	    2 or more person household:
+P018006	    Family households:
+P018007	    Married-couple family:
+P018008	    With own children under 18 years
+P018009	    No own children under 18 years
+P018010	    Other family:
+P018011	    Male householder, no wife present:
+P018012	    With own children under 18 years
+P018013	    No own children under 18 years
+P018014	    Female householder, no husband present:
+P018015	    With own children under 18 years
+P018016	    No own children under 18 years
+P018017	    Nonfamily households:
+P018018	    Male householder
+P018019	    Female householder
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Table (SF 3)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Item 	    Item Name
+HOUSEHOLDS BY PRESENCE OF PEOPLE UNDER 18 YEARS BY HOUSEHOLD TYPE [19]
+P019001	    Total:
+P019002	    Households with one or more people under 18 years:
+P019003	    Family households:
+P019004	    Married-couple family
+P019005	    Other family:
+P019006	    Male householder, no wife present
+P019007	    Female householder, no husband present
+P019008	    Nonfamily households:
+P019009	    Male householder
+P019010	    Female householder
+P019011	    Households with no people under 18 years:
+P019012	    Family households:
+P019013	    Married-couple family
+P019014	    Other family:
+P019015	    Male householder, no wife present
+P019016	    Female householder, no husband present
+P019017	    Nonfamily households:
+P019018	    Male householder
+P019019	    Female householder
+HOUSEHOLDS BY AGE OF HOUSEHOLDER BY HOUSEHOLD TYPE (INCLUDING LIVING ALONE) BY PRESENCE OF OWN CHILDREN [31]
+P020001	    Total:
+P020002	    Householder 15 to 64 years:
+P020003	    Family households:
+P020004	    Married-couple family:
+P020005	    With own children under 18 years
+P020006	    No own children under 18 years
+P020007	    Other family:
+P020008	    Male householder, no wife present:
+P020009	    With own children under 18 years
+P020010	    No own children under 18 years
+P020011	    Female householder, no husband present:
+P020012	    With own children under 18 years
+P020013	    No own children under 18 years
+P020014	    Nonfamily households:
+P020015	    Householder living alone
+P020016	    Householder not living alone
+P020017	    Householder 65 years and over:
+P020018	    Family households:
+P020019	    Married-couple family:
+P020020	    With own children under 18 years
+P020021	    No own children under 18 years
+P020022	    Other family:
+P020023	    Male householder, no wife present:
+P020024	    With own children under 18 years
+P020025	    No own children under 18 years
+P020026	    Female householder, no husband present:
+P020027	    With own children under 18 years
+P020028	    No own children under 18 years
+P020029	    Nonfamily households:
+P020030	    Householder living alone
+P020031	    Householder not living alone
+HOUSEHOLD TYPE BY AGE OF HOUSEHOLDER [19]
+P021001	    Total:
+P021002	    Family households:
+P021003	    Householder 15 to 24 years
+P021004	    Householder 25 to 34 years
+P021005	    Householder 35 to 44 years
+P021006	    Householder 45 to 54 years
+P021007	    Householder 55 to 64 years
+P021008	    Householder 65 to 74 years
+P021009	    Householder 75 to 84 years
+P021010	    Householder 85 years and over
+P021011	    Nonfamily households:
+P021012	    Householder 15 to 24 years
+P021013	    Householder 25 to 34 years
+P021014	    Householder 35 to 44 years
+P021015	    Householder 45 to 54 years
+P021016	    Householder 55 to 64 years
+P021017	    Householder 65 to 74 years
+P021018	    Householder 75 to 84 years
+P021019	    Householder 85 years and over
+HOUSEHOLDS BY PRESENCE OF PEOPLE 60 YEARS AND OVER, HOUSEHOLD SIZE, AND HOUSEHOLD TYPE [11]
+P022001	    Total:
+P022002	    Households with one or more people 60 years and over:
+P022003	    1-person household
+P022004	    2-or-more person household:
+P022005	    Family households
+P022006	    Nonfamily households
+P022007	    Households with no people 60 years and over:
+P022008	    1-person household
+P022009	    2-or-more person household:
+P022010	    Family households
+P022011	    Nonfamily households
+HOUSEHOLDS BY PRESENCE OF PEOPLE 65 YEARS AND OVER, HOUSEHOLD SIZE, AND HOUSEHOLD TYPE [11]
+P023001	    Total:
+P023002	    Households with one or more people 65 years and over:
+P023003	    1-person household
+P023004	    2-or-more person household:
+P023005	    Family households
+P023006	    Nonfamily households
+P023007	    Households with no people 65 years and over:
+P023008	    1-person household
+P023009	    2-or-more person household:
+P023010	    Family households
+P023011	    Nonfamily households
+HOUSEHOLDS BY PRESENCE OF PEOPLE 75 YEARS AND OVER, HOUSEHOLD SIZE, AND HOUSEHOLD TYPE [11]
+P024001	    Total:
+P024002	    Households with one or more people 75 years and over:
+P024003	    1-person household
+P024004	    2-or-more person household:
+P024005	    Family households
+P024006	    Nonfamily households
+P024007	    Households with no people 75 years and over:
+P024008	    1-person household
+P024009	    2-or-more person household:
+P024010	    Family households
+P024011	    Nonfamily households
+HOUSEHOLDS BY PRESENCE OF NONRELATIVES [3]
+P025001	    Total:
+P025002	    Households with one or more nonrelatives
+P025003	    Households with no nonrelatives
+HOUSEHOLD TYPE BY HOUSEHOLD SIZE [16]
+P026001	    Total:
+P026002	    Family households:
+P026003	    2-person household
+P026004	    3-person household
+P026005	    4-person household
+P026006	    5-person household
+P026007	    6-person household
+P026008	    7-or-more person household
+P026009	    Nonfamily households:
+P026010	    1-person household
+P026011	    2-person household
+P026012	    3-person household
+P026013	    4-person household
+P026014	    5-person household
+P026015	    6-person household
+P026016	    7-or-more person household
+RELATIONSHIP BY HOUSEHOLD TYPE (INCLUDING LIVING ALONE) [27]
+P027001	    Total:
+P027002	    In households:
+P027003	    In family households:
+P027004	    Householder:
+P027005	    Male
+P027006	    Female
+P027007	    Spouse
+P027008	    Child:
+P027009	    Natural-born or adopted
+P027010	    Step
+P027011	    Grandchild
+P027012	    Brother or sister
+P027013	    Parent
+P027014	    Other relatives
+P027015	    Nonrelatives
+P027016	    In nonfamily households:
+P027017	    Male householder:
+P027018	    Living alone
+P027019	    Not living alone
+P027020	    Female householder:
+P027021	    Living alone
+P027022	    Not living alone
+P027023	    Nonrelatives
+P027024	    In group quarters:
+P027025	    Institutionalized population
+P027026	    Noninstitutionalized population
+P027027	    Coverage improvement adjustment
+RELATIONSHIP BY HOUSEHOLD TYPE FOR THE POPULATION UNDER 18 YEARS [17]
+P028001	    Total:
+P028002	    In households:
+P028003	    Householder or spouse
+P028004	    Related child:
+P028005	    Own child:
+P028006	    In married-couple family
+P028007	    In other family:
+P028008	    Male householder, no wife present
+P028009	    Female householder, no husband present
+P028010	    Other relatives:
+P028011	    Grandchild
+P028012	    Other relatives
+P028013	    Nonrelatives
+P028014	    In group quarters:
+P028015	    Institutionalized population
+P028016	    Noninstitutionalized population
+P028017	    Coverage improvement adjustment
+RELATIONSHIP BY AGE FOR THE POPULATION UNDER 18 YEARS [46]
+P029001	    Total:
+P029002	    In households:
+P029003	    Householder or spouse
+P029004	    Related child:
+P029005	    Own child:
+P029006	    Under 3 years
+P029007	    3 and 4 years
+P029008	    5 years
+P029009	    6 to 11 years
+P029010	    12 and 13 years
+P029011	    14 years
+P029012	    15 to 17 years
+P029013	    Other relatives:
+P029014	    Under 3 years
+P029015	    3 and 4 years
+P029016	    5 years
+P029017	    6 to 11 years
+P029018	    12 and 13 years
+P029019	    14 years
+P029020	    15 to 17 years
+P029021	    Nonrelatives:
+P029022	    Under 3 years
+P029023	    3 and 4 years
+P029024	    5 years
+P029025	    6 to 11 years
+P029026	    12 and 13 years
+P029027	    14 years
+P029028	    15 to 17 years
+P029029	    In group quarters:
+P029030	    Institutionalized population:
+P029031	    Under 3 years
+P029032	    3 and 4 years
+P029033	    5 years
+P029034	    6 to 11 years
+P029035	    12 and 13 years
+P029036	    14 years
+P029037	    15 to 17 years
+P029038	    Noninstitutionalized population:
+P029039	    Under 3 years
+P029040	    3 and 4 years
+P029041	    5 years
+P029042	    6 to 11 years
+P029043	    12 and 13 years
+P029044	    14 years
+P029045	    15 to 17 years
+P029046	    Coverage improvement adjustment
+RELATIONSHIP BY HOUSEHOLD TYPE (INCLUDING LIVING ALONE) FOR THE POPULATION 65 YEARS AND OVER [22]
+P030001	    Total:
+P030002	    In households:
+P030003	    In family households:
+P030004	    Householder:
+P030005	    Male
+P030006	    Female
+P030007	    Spouse
+P030008	    Parent
+P030009	    Other relatives
+P030010	    Nonrelatives
+P030011	    In nonfamily households:
+P030012	    Male householder:
+P030013	    Living alone
+P030014	    Not living alone
+P030015	    Female householder:
+P030016	    Living alone
+P030017	    Not living alone
+P030018	    Nonrelatives
+P030019	    In group quarters:
+P030020	    Institutionalized population
+P030021	    Noninstitutionalized population
+P030022	    Coverage improvement adjustment
+FAMILIES [1]
+P031001	    Total
+POPULATION IN FAMILIES [1]
+P032001	    Total
+AVERAGE FAMILY SIZE [1]
+P033001	    Average family size
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Table (SF 4)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Item 	    Item Name
+FAMILY TYPE BY PRESENCE AND AGE OF OWN CHILDREN [20]
+P034001	    Total:
+P034002	    Married-couple family:
+P034003	    With own children under 18 years:
+P034004	    Under 6 years only
+P034005	    Under 6 years and 6 to 17 years
+P034006	    6 to 17 years only
+P034007	    No own children under 18 years
+P034008	    Other family:
+P034009	    Male householder, no wife present:
+P034010	    With own children under 18 years:
+P034011    	Under 6 years only
+P034012	    Under 6 years and 6 to 17 years
+P034013    	6 to 17 years only
+P034014	    No own children under 18 years
+P034015	    Female householder, no husband present:
+P034016    	With own children under 18 years:
+P034017	    Under 6 years only
+P034018	    Under 6 years and 6 to 17 years
+P034019	    6 to 17 years only
+P034020	    No own children under 18 years
+FAMILY TYPE BY PRESENCE AND AGE OF RELATED CHILDREN [20]
+P035001	    Total:
+P035002	    Married-couple family:
+P035003	    With related children under 18 years:
+P035004	    Under 6 years only
+P035005	    Under 6 years and 6 to 17 years
+P035006	    6 to 17 years only
+P035007	    No related children under 18 years
+P035008	    Other family:
+P035009	    Male householder, no wife present:
+P035010	    With related children under 18 years:
+P035011	    Under 6 years only
+P035012	    Under 6 years and 6 to 17 years
+P035013	    6 to 17 years only
+P035014	    No related children under 18 years
+P035015	    Female householder, no husband present:
+P035016	    With related children under 18 years:
+P035017	    Under 6 years only
+P035018	    Under 6 years and 6 to 17 years
+P035019	    6 to 17 years only
+P035020	    No related children under 18 years
+OWN CHILDREN UNDER 18 YEARS BY FAMILY TYPE AND AGE [20]
+P036001	    Total:
+P036002	    In married-couple families:
+P036003	    Under 3 years
+P036004	    3 and 4 years
+P036005	    5 years
+P036006	    6 to 11 years
+P036007	    12 to 17 years
+P036008	    In other families:
+P036009	    Male householder, no wife present:
+P036010	    Under 3 years
+P036011	    3 and 4 years
+P036012	    5 years
+P036013	    6 to 11 years
+P036014	    12 to 17 years
+P036015	    Female householder, no husband present:
+P036016	    Under 3 years
+P036017	    3 and 4 years
+P036018	    5 years
+P036019	    6 to 11 years
+P036020	    12 to 17 years
+GROUP QUARTERS POPULATION BY GROUP QUARTERS TYPE [9]
+P037001	    Total:
+P037002	    Institutionalized population:
+P037003	    Correctional institutions
+P037004	    Nursing homes
+P037005	    Other institutions
+P037006	    Noninstitutionalized population:
+P037007	    College dormitories (includes college quarters off campus)
+P037008	    Military quarters
+P037009	    Other noninstitutional group quarters
+GROUP QUARTERS POPULATION BY SEX BY AGE BY GROUP QUARTERS TYPE [57]
+P038001	    Total:
+P038002	    Male:
+P038003	    Under 18 years:
+P038004	    Institutionalized population:
+P038005	    Correctional institutions
+P038006	    Nursing homes
+P038007	    Other institutions
+P038008	    Noninstitutionalized population:
+P038009	    College dormitories (includes college quarters off campus)
+P038010	    Military quarters
+P038011	    Other noninstitutional group quarters
+P038012	    18 to 64 years:
+P038013	    Institutionalized population:
+P038014	    Correctional institutions
+P038015	    Nursing homes
+P038016	    Other institutions
+P038017	    Noninstitutionalized population:
+P038018	    College dormitories (includes college quarters off campus)
+P038019	    Military quarters
+P038020	    Other noninstitutional group quarters
+P038021	    65 years and over:
+P038022	    Institutionalized population:
+P038023	    Correctional institutions
+P038024     Nursing homes
+P038025    	Other institutions
+P038026     Noninstitutionalized population:
+P038027	    College dormitories (includes college quarters off campus)
+P038028	    Military quarters
+P038029	    Other noninstitutional group quarters
+P038030	    Female:
+P038031	    Under 18 years:
+P038032	    Institutionalized population:
+P038033	    Correctional institutions
+P038034	    Nursing homes
+P038035	    Other institutions
+P038036	    Noninstitutionalized population:
+P038037	    College dormitories (includes college quarters off campus)
+P038038	    Military quarters
+P038039	    Other noninstitutional group quarters
+P038040	    18 to 64 years:
+P038041	    Institutionalized population:
+P038042	    Correctional institutions
+P038043	    Nursing homes
+P038044	    Other institutions
+P038045	    Noninstitutionalized population:
+P038046	    College dormitories (includes college quarters off campus)
+P038047	    Military quarters
+P038048	    Other noninstitutional group quarters
+P038049	    65 years and over:
+P038050	    Institutionalized population:
+P038051	    Correctional institutions
+P038052	    Nursing homes
+P038053	    Other institutions
+P038054	    Noninstitutionalized population:
+P038055	    College dormitories (includes college quarters off campus)
+P038056	    Military quarters
+P038057	    Other noninstitutional group quarters
+POPULATION SUBSTITUTED [5]
+P039001	    Total:
+P039002	    Not substituted
+P039003	    Substituted:
+P039004	    Noninterview
+P039005	    Coverage improvement adjustment
+IMPUTATION OF POPULATION ITEMS [3]
+P040001	    Total:
+P040002	    Allocated
+P040003	    Not allocated
+IMPUTATION OF RACE [3]
+P041001	    Total:
+P041002	    Allocated
+P041003	    Not allocated
+IMPUTATION OF HISPANIC OR LATINO [3]
+P042001	    Total:
+P042002	    Allocated
+P042003	    Not allocated
+IMPUTATION OF SEX [3]
+P043001	    Total:
+P043002	    Allocated
+P043003	    Not allocated
+IMPUTATION OF AGE [3]
+P044001	    Total:
+P044002	    Allocated
+P044003	    Not allocated
+IMPUTATION OF RELATIONSHIP [3]
+P045001	    Total:
+P045002	    Allocated
+P045003	    Not allocated
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Table (SF 37)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Item 	    Item Name
+HOUSING UNITS [1]
+H001001     Total
+URBAN AND RURAL [6]
+H002001     Total:
+H002002     Urban:
+H002003     Inside urbanized areas
+H002004     Inside urban clusters
+H002005	    Rural
+H002006	    Not defined for this file
+OCCUPANCY STATUS [3]
+H003001	    Total:
+H003002	    Occupied
+H003003	    Vacant
+TENURE [3]
+H004001	    Total:
+H004002	    Owner occupied
+H004003	    Renter occupied
+VACANCY STATUS [7]
+H005001	    Total:
+H005002	    For rent
+H005003	    For sale only
+H005004	    Rented or sold, not occupied
+H005005	    For seasonal, recreational, or occasional use
+H005006	    For migrant workers
+H005007	    Other vacant
+RACE OF HOUSEHOLDER [8]
+H006001	    Total:
+H006002	    Householder who is White alone
+H006003	    Householder who is Black or African American alone
+H006004	    Householder who is American Indian and Alaska Native alone
+H006005     Householder who is Asian alone
+H006006	    Householder who is Native Hawaiian and Other Pacific Islander alone
+H006007	    Householder who is Some other race alone
+H006008	    Householder who is Two or more races
+HISPANIC OR LATINO HOUSEHOLDER BY RACE OF HOUSEHOLDER [17]
+H007001	    Total:
+H007002	    Not Hispanic or Latino householder:
+H007003	    Householder who is White alone
+H007004	    Householder who is Black or African American alone
+H007005	    Householder who is American Indian and Alaska Native alone
+H007006	    Householder who is Asian alone
+H007007	    Householder who is Native Hawaiian and Other Pacific Islander alone
+H007008	    Householder who is Some other race alone
+H007009	    Householder who is Two or more races
+H007010	    Hispanic or Latino householder:
+H007011	    Householder who is White alone
+H007012	    Householder who is Black or African American alone
+H007013	    Householder who is American Indian and Alaska Native alone
+H007014	    Householder who is Asian alone
+H007015	    Householder who is Native Hawaiian and Other Pacific Islander alone
+H007016	    Householder who is Some other race alone
+H007017	    Householder who is Two or more races
+TOTAL RACES TALLIED FOR HOUSEHOLDERS [7]
+H008001	    Total races tallied for householders:
+H008002	    White alone or in combination with one or more other races
+H008003	    Black or African American alone or in combination with one or more other
+	        races
+H008004	    American Indian and Alaska Native alone or in combination with one or more
+	        other races
+H008005	    Asian alone or in combination with one or more other races
+H008006	    Native Hawaiian and Other Pacific Islander alone or in combination with one
+	        or more other races
+H008007	    Some other race alone or in combination with one or more other races
+HISPANIC OR LATINO BY TOTAL RACES TALLIED FOR HOUSEHOLDERS [15]
+H009001	    Total races tallied for householders:
+H009002	    Total races tallied for Not Hispanic or Latino householders:
+H009003	    White alone or in combination with one or more other races
+H009004	    Black or African American alone or in combination with one or more other
+	        races
+H009005	    American Indian and Alaska Native alone or in combination with one or more
+	        other races
+H009006	    Asian alone or in combination with one or more other races
+H009007	    Native Hawaiian and Other Pacific Islander alone or in combination with one
+	        or more other races
+H009008	    Some other race alone or in combination with one or more other races
+H009009	    Total races tallied for Hispanic or Latino householders:
+H009010	    White alone or in combination with one or more other races
+H009011	    Black or African American alone or in combination with one or more other
+	        races
+H009012	    American Indian and Alaska Native alone or in combination with one or more
+	        other races
+H009013	    Asian alone or in combination with one or more other races
+H009014	    Native Hawaiian and Other Pacific Islander alone or in combination with one
+	        or more other races
+H009015	    Some other race alone or in combination with one or more other races
+TOTAL POPULATION IN OCCUPIED HOUSING UNITS[1]
+H010001	    Total
+TOTAL POPULATION IN OCCUPIED HOUSING UNITS BY TENURE [3]
+H011001	    Total population in occupied housing units:
+H011002	    Owner occupied
+H011003	    Renter occupied
+AVERAGE HOUSEHOLD SIZE OF OCCUPIED HOUSING UNITS BY TENURE [3]
+H012001	    Total
+H012002	    Owner occupied
+H012003	    Renter occupied
+HOUSEHOLD SIZE [8]
+H013001	    Total:
+H013002	    1-person household
+H013003	    2-person household
+H013004	    3-person household
+H013005	    4-person household
+H013006	    5-person household
+H013007	    6-person household
+H013008	    7-or-more person household
+TENURE BY RACE OF HOUSEHOLDER [17]
+H014001	    Total:
+H014002	    Owner occupied:
+H014003	    Householder who is White alone
+H014004	    Householder who is Black or African American alone
+H014005	    Householder who is American Indian and Alaska Native alone
+H014006	    Householder who is Asian alone
+H014007	    Householder who is Native Hawaiian and Other Pacific Islander alone
+H014008	    Householder who is Some other race alone
+H014009	    Householder who is Two or more races
+H014010	    Renter occupied:
+H014011	    Householder who is White alone
+H014012	    Householder who is Black or African American alone
+H014013	    Householder who is American Indian and Alaska Native alone
+H014014	    Householder who is Asian alone
+H014015	    Householder who is Native Hawaiian and Other Pacific Islander alone
+H014016	    Householder who is Some other race alone
+H014017	    Householder who is Two or more races
+TENURE BY HOUSEHOLD SIZE [17]
+H015001	    Total:
+H015002	    Owner occupied:
+H015003	    1-person household
+H015004	    2-person household
+H015005	    3-person household
+H015006	    4-person household
+H015007	    5-person household
+H015008	    6-person household
+H015009	    7-or-more person household
+H015010	    Renter occupied:
+H015011	    1-person household
+H015012	    2-person household
+H015013	    3-person household
+H015014	    4-person household
+H015015	    5-person household
+H015016	    6-person household
+H015017	    7-or-more person household
+TENURE BY AGE OF HOUSEHOLDER [19]
+H016001	    Total:
+H016002	    Owner occupied:
+H016003	    Householder 15 to 24 years
+H016004	    Householder 25 to 34 years
+H016005	    Householder 35 to 44 years
+H016006	    Householder 45 to 54 years
+H016007	    Householder 55 to 64 years
+H016008	    Householder 65 to 74 years
+H016009	    Householder 75 to 84 years
+H016010	    Householder 85 years and over
+H016011	    Renter occupied:
+H016012	    Householder 15 to 24 years
+H016013	    Householder 25 to 34 years
+H016014	    Householder 35 to 44 years
+H016015	    Householder 45 to 54 years
+H016016	    Householder 55 to 64 years
+H016017	    Householder 65 to 74 years
+H016018	    Householder 75 to 84 years
+H016019	    Householder 85 years and over
+TENURE BY HOUSEHOLD TYPE (INCLUDING LIVING ALONE) BY AGE OF HOUSEHOLDER [69]
+H017001	    Total:
+H017002	    Owner occupied:
+H017003	    Family households:
+H017004	    Married-couple family:
+H017005	    Householder 15 to 34 years
+H017006	    Householder 35 to 64 years
+H017007	    Householder 65 years and over
+H017008	    Other family:
+H017009	    Male householder, no wife present:
+H017010	    Householder 15 to 34 years
+H017011	    Householder 35 to 64 years
+H017012	    Householder 65 years and over
+H017013	    Female householder, no husband present:
+H017014	    Householder 15 to 34 years
+H017015	    Householder 35 to 64 years
+H017016	    Householder 65 years and over
+H017017	    Nonfamily households:
+H017018	    Male householder:
+H017019	    Living alone:
+H017020     Householder 15 to 34 years
+H017021	    Householder 35 to 64 years
+H017022	    Householder 65 years and over
+H017023	    Not living alone:
+H017024	    Householder 15 to 34 years
+H017025	    Householder 35 to 64 years
+H017026	    Householder 65 years and over
+H017027	    Female householder:
+H017028	    Living alone:
+H017029	    Householder 15 to 34 years
+H017030	    Householder 35 to 64 years
+H017031	    Householder 65 years and over
+H017032	    Not living alone:
+H017033	    Householder 15 to 34 years
+H017034	    Householder 35 to 64 years
+H017035	    Householder 65 years and over
+H017036	    Renter occupied:
+H017037	    Family households:
+H017038	    Married-couple family:
+H017039	    Householder 15 to 34 years
+H017040	    Householder 35 to 64 years
+H017041	    Householder 65 years and over
+H017042	    Other family:
+H017043	    Male householder, no wife present:
+H017044	    Householder 15 to 34 years
+H017045	    Householder 35 to 64 years
+H017046	    Householder 65 years and over
+H017047	    Female householder, no husband present:
+H017048	    Householder 15 to 34 years
+H017049	    Householder 35 to 64 years
+H017050	    Householder 65 years and over
+H017051	    Nonfamily households:
+H017052	    Male householder:
+H017053	    Living alone:
+H017054	    Householder 15 to 34 years
+H017055	    Householder 35 to 64 years
+H017056	    Householder 65 years and over
+H017057	    Not living alone:
+H017058	    Householder 15 to 34 years
+H017059	    Householder 35 to 64 years
+H017060	    Householder 65 years and over
+H017061	    Female householder:
+H017062	    Living alone:
+H017063	    Householder 15 to 34 years
+H017064	    Householder 35 to 64 years
+H017065	    Householder 65 years and over
+H017066	    Not living alone:
+H017067	    Householder 15 to 34 years
+H017068	    Householder 35 to 64 years
+H017069	    Householder 65 years and over
+OCCUPIED HOUSING UNITS SUBSTITUTED [3]
+H018001	    Total:
+H018002	    Substituted
+H018003	    Not substituted
+IMPUTATION OF VACANCY STATUS [5]
+H019001	    Total:
+H019002	    Substituted
+H019003	    Not substituted:
+H019004	    Allocated
+H019005	    Not allocated
+IMPUTATION OF TENURE [5]
+H020001	    Total:
+H020002	    Substituted
+H020003	    Not substituted:
+H020004	    Allocated
+H020005	    Not allocated
+</PRE>
+<P>
+<STRONG>USER NOTES:</STRONG>
+<PRE>
+The CENBLK.shp shapefile contains fields taken from the US Census 2000
+Summary 1 file.  There are approximately 40 fields that contain demographic
+data within the shapefile.  These fields were created by the geography
+network and are made up of various fields from the Summary 1 file (for more
+information look to to "FEATURE ATTRIBUTE TABLES CODES AND VALUES").  If other
+demographic data is needed then there are additional tables from the Summary 1
+file that can be joined to Cenblk.shp.
+In order to join the additional tables from the Summary 1 file, select the
+table you want and join it with the shapfile based on "LOGRECNO" (the field is
+in both the shapefile and the additional tables).  Refer to the "FEATURE
+ATTRIBUTE TABLES CODES AND VALUES" in order to choose the table containing the
+field that is of use to you.
+Please take note that the Summary 1 file has 39 different table files associated
+with it.  In order to condense the Summary 1 file we chose the 5 most important
+table files as we saw fit (SF1, SF2, SF3, SF4, SF37).  These 5 tables have over 1000
+attribute fields that have demographic data on total population, race, sex,
+age, and household.
+SF1  has data on total population and race, including Hispanic or Latino and race
+for the population 18 years and over.
+SF2  has data on race, sex by age, and household.
+SF3  has data on age in household and family.
+SF4  has data on family type and age of related and own children.  Also, group
+quarters by sex and age group.
+SF37 has data on housing units and occupancy status including information on race
+and tenure of householder.
+The block level is the smallest unit of census data.  Because of this it is
+possible to use various GIS techniques to summarize the data by Block Group,
+Tract, Traffic Analysis Zone (TAZ), Zip Code Tabulation Area (ZCTA), or County.
+The best way to extract these different entities is to perform a dissolve (for
+more information on how dissolve and other ways to use the Census data look to
+www.fgdl.org - Help and Notes).
+Use the following fields to perform the dissolve for the specified census entity:
+Census Entity                    Dissolve Field
+Block Goup -                      "Bggrp_disv"
+Tract -                           "Tract_disv"
+Traffic Analysis Zone (TAZ) -     "Taz_disv"
+ZCTA3 -                           "Zcta3"
+ZCTA5 -                           "Zcta5"
+County -                          "County"
+Census Block (as defined by U.S. Census Bureau):
+	Census blocks are areas bounded on all sides by visible features,
+such as streets, roads, streams, and railroad tracks, and by invisible
+boundaries, such as city, town, township, and county limits, property lines,
+and short, imaginary extensions of streets and roads. Generally, census blocks
+are small in area; for example, a block bounded by city streets. However,
+census blocks in sparsely settled areas may contain many square miles of
+territory. All territory in the United States, Puerto Rico, and the Island
+Areas has been assigned block numbers, as was the case for the 1990 census.
+	To improve operational efficiency and geographic identifications, the
+U.S. Census Bureau has introduced different numbering systems for tabulation
+blocks used in decennial census data products, and for collection blocks,
+used in administering the census. (In 1990, there generally was a single
+numbering system.) Collection block numbers are available only in the
+TIGER/Line data products; the U.S.Census Bureau does not tabulate data
+for collection blocks.
+	Many tabulation blocks, used in decennial census data products,
+represent the same geographic area as the collection blocks used in the
+Census 2000 enumeration process. Where the collection blocks include territory
+in two or more geographic entities, each unique piece required for data
+tabulation is identified as a separate tabulation block with a separate block
+number. It is possible for two or more collection blocks to be combined into a
+single tabulation block. This situation can occur when a visible feature
+established as a collection block boundary is deleted during the field update
+operation.
+	Tabulation blocks do not cross the boundaries of any entity for
+which the U.S.Census Bureau tabulates data, including American Indian areas,
+Alaska Native areas, Hawaiian home lands, census tracts, congressional districts,
+counties, county subdivisions, places, state legislative districts, urban and
+rural areas, school districts, voting districts, and ZIP Code tabulation areas.
+Tabulation blocks also generally do not cross the boundaries of certain
+landmarks, including military installations, national parks, and national
+monuments.
+	Tabulation blocks are identified uniquely within census tract
+by means of a four-digit number. (The 1990 census block numbers had three
+digits, with a potential alphabetic suffix.) The Census 2000 collection
+blocks are numbered uniquely within county (or statistically equivalent
+entity), and consist of four or five digits. For its Census 2000 data
+tabulations, the U.S.Census Bureau created a unique set of census block
+numbers immediately before beginning the tabulation process. These are the
+census block numbers seen in the data presentations. For the 1990 census,
+the U.S.Census Bureau created a separate block with a suffix of Z to
+identify crews-of-vessels population. For Census 2000, crews-of-vessels
+population is assigned to the land block identified by the U.S.Census
+Bureau as associated with the home port of the vessel. Participants in
+certain U.S.Census Bureau-sponsored programs were able to request that
+line features in the TIGER database be held as tabulation block boundaries,
+provided that these conformed to U.S.Census Bureau criteria. This option
+was available to participants in the Census 2000 Redistricting Data Program
+(the Block Boundary Suggestion Project), American Indian and Alaska Native
+Area Tribal Review (Block Definition Project), and the District of Columbia
+and the Puerto Rico Block Boundary Definition Project.
+	The U.S.Census Bureau introduced a different method for identifying
+the water areas of census blocks. For the 1990 census, water was not uniquely
+identified within a census block; instead, all water area internal to a block
+group was given a single block number ending in 99 (for example, in block group 1,
+all water was identified as block 199). A suffix was added to each water block
+number where the block existed in more than one tabulation entity within its block
+group. For Census 2000, water area located completely within the boundary of
+a single land tabulation block has the same block number as that land block.
+Water area that touches more than one land block is assigned a unique block
+number not associated with any adjacent land block. The water block numbers
+begin with the block group number followed by 999 and proceed in descending
+order (for example, in block group 3, the numbers assigned to water areas that
+border multiple land blocks are 3999, 3998, etc.). In some block groups, the
+numbering of land blocks might use enough of the available numbers to reach
+beyond the 900 range within the block group. For this reason, and because some
+land blocks include water (ponds and small lakes), no conclusions about whether
+a block is all land or all water can be made by looking at the block number.
+The land/water flag, set at the polygon level in the TIGER database and shown
+in TIGER/Line and statistical data tabulation files, is the only way to know
+if a block is all water when viewing the computer files. On maps,water areas
+are shown with a screen symbol.
+For more information on Census Blocks or other Census entities, please see
+the following document:
+(www.census.gov/prod/cen2000/doc/sf1.pdf)
+A note concerning data scale:
+Scale is an important factor in data usage. Certain scale datasets are not
+suitable for some project, analysis, or modelling purposes. Please be sure
+you are using the best available data.
+1:24000 scale datasets are recommended for projects that are at the county
+level. 1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:250000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+Vector datasets with no defined scale or accuracy should be considered
+suspect. Make sure you are familiar with your data before using it for
+projects or analyses. Every effort has been made to supply the user with
+data documentation. For additional information, see the References section
+and the Data Source Contact section of this documentation. For more
+information regarding scale and accuracy, see our web pages at:
+http://www.geoplan.ufl.edu/education.html
+</PRE>
+<P>
+<STRONG>FGDL QUALITY ASSURANCE STATUS:</STRONG>
+<PRE>
+-Joined shapefile with GeoHeader file from Summary 1
+-Add descript item based on total population
+-Projected data to FGDL Albers HPGN (See "Map Projection Parameters" below).
+-Converted AREALAND, AREAWATR, POP100, HU100 fields from character to number
+-Downloaded 2000 SF1 Block Data from Geography Network
+-Joined Block Data with shapefile
+-Dropped duplicate fields (State, County, Tract, Block)
+-Calculated total acres using x-tools for ArcView 3.2
+-Added Popdens (Population Density) and PCTMNRTY (Percent Minority Population)
+  note: for 3 records ACRES = .000 for these records the ACRES were changed to
+  .001
+</PRE>
+<P>
+<STRONG>REFERENCES:</STRONG>
+<PRE>
+U.S. Census Bureau
+www.census.gov
+Geography Network
+www.geographynetwork.com/data/tiger2000
+</PRE>
+<P>
+<STRONG>DATA LINEAGE SUMMARY:</STRONG>
+<PRE>
+Census Block Boundaries were downloaded by the GeoPlan Center from
+www.geographynetwork.com/data/tiger2000. The data was downloaded in shapefile format
+with the following projection parameters: Geographic, Datum: NAD 83, Spheroid: GRS80,
+Units: Decimal Degrees
+The Summary 1 file was downloaded by the GeoPlan Center from Census.gov in delimited text
+format.
+The 2000 SF1 Block Data from Geography Network was downloaded by the GeoPlan Center from
+www.geographynetwork.com/data/tiger2000 in dbf format.
+</PRE>
+<P><STRONG>MAP PROJECTION PARAMETERS:</STRONG>
+<PRE>
+Projection                           ALBERS
+  Units                                METERS
+  Datum                                HPGN
+  Spheroid                             GRS1980
+  1st standard parallel                24   0  0.000
+  2nd standard parallel                31  30  0.000
+  central meridian                    -84   0  0.000
+  latitude of projection's origin      24   0  0.000
+  false easting (meters)               400000.00000
+  false northing (meters)              0.00000
+</PRE>
+<P><STRONG>DATA SOURCES CONTACT(S):</STRONG>
+<PRE>
+Name: 		U.S. Department of Commerce
+                Bureau of the Census
+Abbr.name:
+Address: 	8903 Presidential Parkway, WP I
+                Upper Marlboro, Maryland
+                20772
+Phone: 		(301) 457-1128
+Fax: 		(301) 457-4710
+Web site:
+Ftp site:
+Email:          tiger@census.gov
+Contact Person:
+         Phone:
+         Email: </PRE><P><STRONG>FGDL CONTACT:</STRONG>
+<PRE>
+Name:                    Florida Geographic Data Library
+Abbr. Name:              FGDL
+Address:                 Florida Geographic Data Library
+                         431 Architecture
+                         PO Box 115706
+                         Gainesville, FL  32611-5706
+Web site:                <A HREF="http://www.fgdl.org">http://www.fgdl.org</A>
+Contact FGDL:
+      Technical Support:                <A HREF="http://www.fgdl.org/fgdlfeed.html">http://www.fgdl.org/fgdlfeed.html</A>
+      FGDL Frequently Asked Questions:  <A HREF="http://www.fgdl.org/fgdlfaq.html">http://www.fgdl.org/fgdlfaq.html</A>
+      FGDL Mailing Lists:               <A HREF="http://www.fgdl.org/fgdl-l.html">http://www.fgdl.org/fgdl-l.html</A>
+      For FGDL Software:                <A HREF="http://www.fgdl.org/software.html">http://www.fgdl.org/software.html</A>
+</PRE></BODY></HTML>
