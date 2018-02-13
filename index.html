@@ -1,83 +1,114 @@
----
-layout: home
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Champe Barton personal web page.">
+    <meta name="author" content="Champe T Barton">
 
-<main class="bd-masthead" id="content" role="main">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-6 mx-auto col-md-6 order-md-2">
-        <img class="img-fluid mb-3 mb-md-0" src="{{ site.baseurl }}/assets/img/bootstrap-stack.png" alt="" width="1024" height="860">
-      </div>
-      <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-        <h1 class="mb-3 bd-text-purple-bright">Bootstrap</h1>
-        <p class="lead">
-          Build responsive, mobile-first projects on the web with the world's most popular front-end component library.
-        </p>
-        <p class="lead mb-4">
-          Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
-        </p>
-        <div class="d-flex flex-column flex-md-row lead mb-3">
-          <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Get started', 'Get started');">Get started</a>
-          <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/" class="btn btn-lg btn-outline-secondary" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}');">Download</a>
+    <title>Champe's Site</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="vertical-center">
+        <div id="home" class="center col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 fade">
+          <h1>Hi.</h1>
+          <p>
+            I'm Champe. Click around to learn about me and my work.
+          </p>
+          <div class="btn-group">
+            <button type="button" id="about-from-home" class="btn btn-default">About me</button>
+            <button type="button" id="projects-from-home" class="btn btn-default">Projects</button>
+            <button type="button" id="experience-from-home" class="btn btn-default">Work</button>
+          </div>
         </div>
-        <p class="text-muted mb-0">
-          Currently v{{ site.current_version }}
-        </p>
+        <div id="about-me" class="center col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 fade">
+          <h1>About Me</h1>
+            <img class="headshot" src="ChampeBartonProfilePic1edit.JPEG"/>
+            <h3>
+              <strong>Champe T. Barton</strong>
+            <h3>
+            <p>I write and code, mostly, but enjoy other things, too, like Ursula K. Le Guin novels and Kendrick Lamar and the way Jonathan Amos edits.
+
+            I'm studying Economics (BA), Cognitive Neuroscience (BS), and Classics (minor) at the University of Florida. I graduate in Spring 2018, at which point I plan on struggling as a journalist and screenwriter, reading to make up for lost time, and messing with data to make complicated social issues more approachable. 
+
+            Check out my writing/graphic design portfolio at champetbarton.com
+            </p>
+            <div class="btn-group">
+              <button type="button" id="home-from-about" class="btn btn-default">Home</button>
+              <button type="button" id="projects-from-about" class="btn btn-default">Projects</button>
+              <button type="button" id="experience-from-about" class="btn btn-default">Work</button>
+            </div>
+        </div>
+        <div id="projects" class="center col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 fade">
+          <h1>Personal Projects</h1>
+          <!-- TODO: Use swiping instead of arrows on mobile. -->
+          <div class="">
+              <div class="col-xs-2 col-md-1 btn-container proj-btn" style="padding: 0px; ">
+                <button id="projects-left" class="btn btn-next"><i class="fa fa-arrow-left fa-2x"></i></button>
+              </div>
+              <div class="col-xs-8 col-md-10 projects-content">
+
+                <div id="zone" class="projects-item fade">
+                  <h2>Zone</h2>
+                  <img id="zoneImage" class="proj-img" src="img/zone.jpg"/>
+                  <h4><strong><a href="https://github.com/bmtreuherz/COP3503_Project">Repo</a></strong></h4>
+                  <p>
+                    This project is a game based off of Ramiro Corbetta's Hokra. It was written in C++ using SDL 2 by myself and a team of students
+                    from one of my courses. The objective of the game is to capture a ball and hold it in your team's zone for as long as possible.
+                    A meter fills up whenever the ball is in your zone and the first team to fill the meter wins.
+                  </p>
+                </div>
+              </div>
+
+            <div class="col-xs-2 col-md-1 btn-container proj-btn" style="padding: 0px;">
+              <button id="projects-right" class="btn btn-next"><i class="fa fa-arrow-right fa-2x"></i></button>
+            </div>
+          </div>
+              <div class="btn-group">
+                <button type="button" id="home-from-projects" class="btn btn-default">Home</button>
+                <button type="button" id="about-from-projects" class="btn btn-default">About me</button>
+                <button type="button" id="experience-from-projects" class="btn btn-default">Work</button>
+              </div>
+        </div>
+
+            <div class="col-xs-2 col-md-1 btn-container exp-btn" style="padding: 0px;">
+              <button id="experience-right" class="btn btn-next"><i class="fa fa-arrow-right fa-2x"></i></button>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="home-from-experience" class="btn btn-default">Home</button>
+            <button type="button" id="about-from-experience" class="btn btn-default">About me</button>
+            <button type="button" id="projects-from-experience" class="btn btn-default">Projects</button>
+          </div>
+        </div>
+        <footer id="footer" class="footer fade">
+            <a href="ChampeBartonResume.pdf" target="_blank">
+              <i class="fa fa-file-pdf-o fa-2x"  data-toggle="tooltip" title="Resume"></i>
+            </a>
+            <a href="mailto:bchampebarton@gmail.com">
+              <i class="fa fa-envelope-o fa-2x" data-toggle="tooltip" title="Email"></i>
+            </a>
+            <a href="https://github.com/champebarton" target="_blank">
+              <i class="fa fa-github-alt fa-2x" data-toggle="tooltip" title="Github"></i>
+            </a>
+            <a href="https://linkedin.com/in/champebarton" target="_blank">
+              <i class="fa fa-linkedin-square fa-2x" data-toggle="tooltip" title="LinkedIn"></i>
+            </a>
+        </footer>
       </div>
     </div>
-    {% include ads.html %}
-  </div>
-</main>
 
-<div class="masthead-followup row m-0 border border-white">
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
-    <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-    {% include icons/import.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>Installation</h3>
-    <p>Include Bootstrap's source Sass and JavaScript files via npm, Composer or Meteor. Package managed installs don't include documentation, but do include our build system and readme.</p>
-
-{% highlight sh %}
-npm install bootstrap
-{% endhighlight %}
-
-{% highlight sh %}
-gem install bootstrap -v {{ site.current_ruby_version }}
-{% endhighlight %}
-
-    <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download">Read installation docs</a>
-  </div>
-
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
-    <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-    {% include icons/download.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>BootstrapCDN</h3>
-    <p>When you only need to include Bootstrap's compiled CSS or JS, you can use <a href="https://www.bootstrapcdn.com/">BootstrapCDN</a>.</p>
-
-<h5>CSS only</h5>
-{% highlight html %}
-<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
-{% endhighlight %}
-
-<h5>JS, Popper.js, and jQuery</h5>
-{% highlight html %}
-<script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
-<script src="{{ site.cdn.popper }}" integrity="{{ site.cdn.popper_hash }}" crossorigin="anonymous"></script>
-<script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
-{% endhighlight %}
-    <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/layout/overview/">Explore the docs</a>
-  </div>
-
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
-    <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-    {% include icons/lightning.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>Official Themes</h3>
-    <p>
-      Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools.
-    </p>
-    <img class="img-fluid mt-3 mx-auto" src="{{ site.baseurl }}/assets/img/bootstrap-themes.png" alt="Bootstrap Themes" width="1024" height="388">
-    <hr class="half-rule">
-    <a href="{{ site.themes }}" class="btn btn-outline-primary">Browse themes</a>
-  </div>
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </body>
+</html>
