@@ -18,10 +18,10 @@ var commaFormat = d3.format("0,000");
 function drawHistogram(){
 
   // d3.csv("master.csv", function(error, masterData) {
-    d3.csv("https://raw.champebarton.github.io/genre_mapping.csv", function(error, genreMapping) {
-      d3.csv("https://raw.champebarton.github.io/character_list7.csv", function(error, characterData) {
+    d3.csv("champebarton.github.io/genre_mapping.csv", function(error, genreMapping) {
+      d3.csv("champebarton.github.io/character_list7.csv", function(error, characterData) {
         d3.csv("https://raw.githubusercontent.com/matthewfdaniels/scripts/graphs/meta_data7.csv", function(error, metaData) {
-           d3.csv("https://raw.champebarton.github.io/DisneyFilms3.csv", function(error, disneyFilms) {
+           d3.csv("champebarton.github.io/DisneyFilms3.csv", function(error, disneyFilms) {
             // d3.csv("rom_com.csv", function(error, romCom) {
             //   d3.csv("lines_data.csv", function(error, lineByLine) {
 
