@@ -1022,7 +1022,7 @@ body {
 }
 
 .opener-title {
-    font-size: 198px;
+    font-size: 100px;
     text-align: center;
     font-weight: 600;
     color: #00deaa;
@@ -1034,7 +1034,7 @@ body {
 }
 
 .opener-title-container {
-    width: 900px;
+    width: 1000px;
     margin: 0 auto;
     margin-bottom: 10px;
 }
