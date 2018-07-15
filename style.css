@@ -1034,7 +1034,7 @@ body {
 }
 
 .opener-title-container {
-    width: 1000px;
+    width: 960px;
     margin: 0 auto;
     margin-bottom: 10px;
 }
@@ -2202,6 +2202,77 @@ text {
     /* border-right: 1px solid black; */
 }
 
+.gross-sprite {
+    position: absolute;
+    left: 300px;
+}
+
+.step-buffer {
+    height: 300px;
+}
+
+/* scrollama */
+#scroll {
+    position: relative;
+}
+
+.scroll__graphic {
+    position: absolute;
+    top: 0;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    background-color: #fff;
+    width: 80%;
+    height: 500px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: -1;
+}
+
+.scroll__graphic.is-fixed {
+    position: fixed;
+    background: linear-gradient(rgba(255,255,255,1) 315px, rgba(255,255,255,0));
+    background: -webkit-linear-gradient(rgba(255,255,255,1) 315px, rgba(255,255,255,0));
+}
+
+.scroll__graphic.is-bottom {
+    bottom: 0;
+    top: auto;
+}
+
+.gross-chart {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.scroll__text {
+    position: relative;
+    padding: 1rem;
+    width: 630px;
+    margin: 0 auto;
+    z-index: -2;
+}
+
+.step {
+
+}
+
+.step.is-active {
+    background-color: white;
+}
+
+.gross-chart-container {
+    height: 550px;
+}
+
 .white-color {
     color: #fecb45;
 }
@@ -2266,6 +2337,10 @@ a {
 
 .age-spacer {
     height: 20px;
+}
+
+.gross-spacer {
+    height: 150px;
 }
 
 .all-films {
@@ -2440,6 +2515,9 @@ a {
     height: 960px;
     position: relative;
   }
+
+  .scroll__text {width: 90%;}
+
 
   .age-title{width: 90%;}
   .age-title-big{width: 100%;font-size: 27px;}
