@@ -26,6 +26,7 @@ function drawHistogram(){
             //   d3.csv("lines_data.csv", function(error, lineByLine) {
 
 
+    
     var mobileBubbleOffset = -20;
     var markerBubbleTopOffset = 34;
     var previewTopOffset = 59;
@@ -4171,8 +4172,7 @@ function drawHistogram(){
         .scale(x)
         .tickPadding(-4)
         .tickValues([10,20,30,40,50,60,70])
-        .orient("bottom")
-        ;
+        .orient("bottom");
 
       var area = d3.svg.area()
         .interpolate("basis")
@@ -4238,6 +4238,343 @@ function drawHistogram(){
     })
     ;
 
+// _________________________________________________________________________________________________________________________//
+
+//  gross map
+
+  // using d3 for convenience
+  var container = d3v4.select('#scroll');
+  var graphic = container.select('.scroll__graphic');
+  var chart = graphic.select('.gross-chart');
+  var text = container.select('.scroll__text');
+  var step = text.selectAll('.step');
+  // initialize the scrollama
+  var scroller = scrollama();
+
+  var buffer = d3v4.select('.step-buffer');
+
+  var svg = chart.append("svg");
+
+  var testWidth;
+  var testHeight;
+
+  var gX;
+  var gY;
+
+  handleResize();
+
+  var grossChart = svg.append("g")
+      .attr("transform", "translate(" + gX  + ",-" + gY + ")");
+
+
+
+  var formatX = d3v4.format(".0f");
+  var formatY = d3v4.format(".0f");
+
+  var colorValue = function(d) { return colorScale(+d.pct_wht); };
+  var interpolateOne = d3v4.interpolate("#3ecdfd","#ddd");
+  var interpolateTwo = d3v4.interpolate("#ddd","#fecb45");
+
+  var colorScale = d3v4.scaleLinear()
+    .domain([0,0.33,0.5,0.66,1])
+    .range(["#3ecdfd",interpolateOne(0.5),"#ddd",interpolateTwo(0.5), "#fecb45"]); 
+  
+   usGross.forEach(function(d) {
+      d.us_gross = +d.us_gross;
+      d.pct_wht = +d.pct_wht;
+   });
+
+  var max = d3v4.max(usGross, (function (d) {return d.us_gross}));
+
+  var x = d3v4.scaleLinear()
+      .domain([0, d3v4.max(usGross,function (d) { return d.pct_wht })])
+      .range([0, testWidth]);
+
+  var y = d3v4.scaleLinear()
+      .domain([0, max])
+      .range([testHeight, 0]);
+
+  var xAxis = d3v4.axisBottom(x)
+      .tickSize(0)
+      .tickFormat(function(d) { 
+        var s = formatX(d*100);
+        return this.parentNode.nextSibling  
+            ? "\xa0" + s
+            : s + "%";
+      })
+      .ticks(5);
+
+  var tickLength;
+
+  if(!mobile) {
+    tickLength = testWidth*0.96;
+  } else {
+    tickLength = testWidth*0.90;
+  }
+
+  var yAxis = d3v4.axisRight(y)
+      .tickSize(tickLength + gX)
+      .tickFormat(function(d) {
+        var s = formatY(d / 1e6);
+        return this.parentNode.nextSibling
+            ? "\xa0" + s
+            : "$" + s + " million";
+      })
+      .ticks(6);
+
+  var xGroup = grossChart.append("g")
+      .attr("transform", "translate(0," + (chart.node().offsetHeight - 10)+ ")")
+      .attr("class", "age-chart-distribution-percent tk-futura-pt")
+      .call(customXAxis);
+
+  var yGroup = grossChart.append("g")
+      .attr("class", "age-chart-distribution-percent tk-futura-pt")
+      .call(customYAxis);
+
+  var circles = grossChart.selectAll('circle')
+      .data(usGross)
+      .enter()
+    .append('circle')
+      .attr('cx',function (d) { return x(+d.pct_wht) })
+      .attr('cy',function (d) { return y(+d.us_gross) })
+      .attr('r','4')
+      .attr('fill', colorValue)
+      .attr("fill-opacity", 1);
+      // .attr("stroke", "#FFFFFF")
+      // .attr("stroke-width", 0.2)
+      // .attr("stroke-opacity", 0.3);
+
+  var firstValues = function(d) { return y(+d.us_gross) };
+  var trigger = 0;
+
+  var xSeries = usGross.map(function(d) { return parseFloat(d.pct_wht); });
+  var ySeries = usGross.map(function(d) { return parseFloat(d.us_gross); });
+    
+  
+  var leastSquaresCoeff = leastSquares(xSeries, ySeries);
+
+  var slope = leastSquaresCoeff[0];
+  var intercept = leastSquaresCoeff[1];
+  var rSquare = leastSquaresCoeff[2];
+
+  var trendline = grossChart.append("line")
+      .attr("x1", x(0.))
+      .attr("y1", y(intercept))
+      .attr("stroke-opacity", 0.8)
+      .attr("stroke-width", 2);
+
+  if(!mobile) {
+    trendline
+      .attr("x2", x(0.))
+      .attr("y2", y(d3v4.max(usGross,function (d) { return d.pct_wht })*slope + intercept))
+      .attr("stroke", "#3ecdfd");
+  } else {
+    trendline
+      .attr("stroke", "#505050")
+      .attr("x2", x(d3v4.max(usGross,function (d) { return d.pct_wht })))
+      .attr("y2", y(d3v4.max(usGross,function (d) { return d.pct_wht })*slope + intercept));
+  }
+
+  function customXAxis(g) {
+    g.call(xAxis);
+    g.select(".domain").remove();
+    g.selectAll(".tick text").style("font-size", 13).style("font-weight", 500);
+  }
+
+  function customYAxis(g) {
+    var s = g.selection ? g.selection() : g;
+    g.call(yAxis);
+    s.select(".domain").remove();
+    s.selectAll("line").attr("stroke", "#777").attr("stroke-opacity", 0.4).attr("stroke-dasharray", "5,4");
+    s.selectAll(".tick text").attr("x", -35).attr("dy", -4).style("font-size", 13).style("font-weight", 500);
+    if (s !== g) g.selectAll(".tick text").attrTween("x", null).attrTween("dy", null);
+  }
+
+  function leastSquares(xSeries, ySeries) {
+    var reduceSumFunc = function(prev, cur) { return prev + cur; };
+    
+    var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
+    var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+
+    var ssXX = xSeries.map(function(d) { return Math.pow(d - xBar, 2); })
+      .reduce(reduceSumFunc);
+    
+    var ssYY = ySeries.map(function(d) { return Math.pow(d - yBar, 2); })
+      .reduce(reduceSumFunc);
+      
+    var ssXY = xSeries.map(function(d, i) { return (d - xBar) * (ySeries[i] - yBar); })
+      .reduce(reduceSumFunc);
+      
+    var slope = ssXY / ssXX;
+    var intercept = yBar - (xBar * slope);
+    var rSquare = Math.pow(ssXY, 2) / (ssXX * ssYY);
+    
+    return [slope, intercept, rSquare];
+  }
+
+  // generic window resize listener event
+  function handleResize() {
+    // 1. update height of step elements
+    var stepHeight = Math.floor(window.innerHeight * 0.25);
+    step
+      .style('height', stepHeight + 'px');
+    // 2. update width/height of graphic element
+    var bodyWidth = d3v4.select('body').node().offsetWidth;
+    graphic
+      .style('width', bodyWidth + 'px')
+      .style('height', (container.node().offsetHeight*0.48) + 'px');
+    var chartMargin = 32;
+    var textWidth = text.node().offsetWidth;
+    var chartWidth = graphic.node().offsetWidth - chartMargin;
+    chart
+      .style('width', chartWidth + 'px')
+      .style('height', Math.floor(window.innerHeight / 2) + 'px');
+
+    if(!mobile) {
+      testWidth = chartWidth*0.68;
+    } else {
+      testWidth = chartWidth*0.80;
+    }
+    testHeight = Math.floor(window.innerHeight / 2)*.90;
+
+    gY = testHeight*0.05;
+    if(!mobile) {
+      gX = testWidth*0.05;
+    } else {
+      gX = testWidth*0.15;
+    }
+
+    var xShift = Math.floor((window.innerWidth - testWidth) / 2) - gX;
+
+    svg
+      .attr('width', chartWidth + 'px')
+      .attr('height', Math.floor(window.innerHeight / 2) + 'px');
+
+    if(!mobile) {
+      svg 
+        .attr('transform', 'translate(' + xShift + ',0)');
+    } else {
+      svg 
+        .attr('transform', 'translate(' + (xShift - 15) + ',0)');
+    }
+
+    buffer
+      .style('height', Math.floor(window.innerHeight / 2) + 'px');
+    // 3. tell scrollama to update new element dimensions
+    scroller.resize();
+  }
+
+  // scrollama event handlers
+  function handleStepEnter(response) {
+    // response = { element, direction, index }
+    // add color to current step only
+    step.classed('is-active', function (d, i) {
+      return i === response.index;
+    })
+
+    if (response.index == 0 && trigger == 1) {
+
+    d3v4.timeout(function() {
+      y.domain([0, max]);
+      yGroup.transition().duration(1000).call(customYAxis);
+      d3v4.selectAll('circle') // move the circles
+        .data(usGross)
+        .transition().duration(1000)
+          .attr('cy',firstValues)
+          .attr('r', 4);
+          // .attr('stroke', "#505050")
+          // .attr('stroke-width', 0.1)
+          // .attr('stroke-opacity', 0.4);
+      trendline.transition().duration(1000)
+          .attr("x1", x(0.))
+          .attr("y1", y(intercept))
+          .attr("x2", x(d3v4.max(usGross,function (d) { return d.pct_wht })))
+          .attr("y2", y(d3v4.max(usGross,function (d) { return d.pct_wht })*slope + intercept))
+          .attr("stroke-width", 2);
+    }, 0); 
+
+    trigger = 0;
+    }
+
+    if (response.index == 1 && trigger == 0) {
+
+    d3v4.timeout(function() {
+      y.domain([0, max/10]);
+      yGroup.transition().duration(1000).call(customYAxis);
+      d3v4.selectAll('circle') // move the circles
+        .data(usGross)
+        .transition().duration(1000)
+          .attr('cy',function (d) { return y(d.us_gross) })
+          .attr('r', 6);
+          // .attr('stroke', "#505050")
+          // .attr('stroke-width', 0.1)
+          // .attr('stroke-opacity', 0.4);
+      trendline.transition().duration(1000)
+          .attr("x1", x(0.))
+          .attr("y1", y(intercept))
+          .attr("x2", x(d3v4.max(usGross,function (d) { return d.pct_wht })))
+          .attr("y2", y(d3v4.max(usGross,function (d) { return d.pct_wht })*slope + intercept))
+          .attr("stroke-width", 4);
+    }, 0); 
+
+    trigger = 1;
+    }
+    // update graphic based on step
+    // chart.select('p').text(response.index + 1)
+  }
+  function handleContainerEnter(response) {
+    // response = { direction }
+    // sticky the graphic (old school)
+    graphic.classed('is-fixed', true);
+    graphic.classed('is-bottom', false);
+
+    if(trigger == 0) {
+      trendline.transition().duration(1).attr("stroke", "#505050")
+
+      trendline.transition().duration(800).attr("x2", x(d3v4.max(usGross,function (d) { return d.pct_wht })))
+        .attr("y1", y(d3v4.max(usGross,function (d) { return d.pct_wht })*slope + intercept))
+    }
+
+  }
+  function handleContainerExit(response) {
+    // response = { direction }
+    // un-sticky the graphic, and pin to top/bottom of container
+    graphic.classed('is-fixed', false);
+    graphic.classed('is-bottom', response.direction === 'down');
+
+    if(trigger == 0) {
+      d3v4.timeout(function() {
+        trendline.transition().duration(800).attr("x2", 0.).attr("y1", y(d3.max(usGross,function (d) { return d.pct_wht })*slope + intercept))
+      }, 1000);
+    }
+
+  }
+  //function init() {
+    if(!mobile) {
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+  //    handleResize();
+
+      // 2. setup the scroller passing options
+      // this will also initialize trigger observations
+      // 3. bind scrollama event handlers (this can be chained like below)
+      scroller.setup({
+        container: '#scroll',
+        graphic: '.scroll__graphic',
+        text: '.scroll__text',
+        step: '.scroll__text .step',
+      })
+        .onStepEnter(handleStepEnter)
+        .onContainerEnter(handleContainerEnter)
+        .onContainerExit(handleContainerExit);
+    }
+      // setup resize event
+      window.addEventListener('resize', handleResize);
+
+  //}
+
+
+  // kick things off
+  //init();
 
     // var romComMap = d3.map(romCom,function(d,i){
     //   return d.imdb_id;
@@ -4393,7 +4730,7 @@ function drawHistogram(){
     // //lines_data.csv
     // });
     // //rom-com.csv
-    // });
+    });
 
     //genre_mapping.csv
     });
