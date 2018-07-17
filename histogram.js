@@ -4304,7 +4304,7 @@ function drawHistogram(){
   } else {
     var y = d3v4.scaleLinear()
       .domain([0, max])
-      .range([testHeight*0.90, 0]);
+      .range([testHeight*0.85, 0]);
   }
 
   var xAxis = d3v4.axisBottom(x)
