@@ -4258,13 +4258,20 @@ function drawHistogram(){
   var testWidth;
   var testHeight;
 
+  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
   var gX;
   var gY;
+  var xShift;
 
   handleResize();
 
   var grossChart = svg.append("g")
       .attr("transform", "translate(" + gX  + ",-" + gY + ")");
+
+  if(isSafari) {
+    grossChart.attr("transform", "translate(" + xShift*1.2 + ",-" + gY*0.23 + ")");
+  }
 
 
 
@@ -4290,9 +4297,15 @@ function drawHistogram(){
       .domain([0, d3v4.max(usGross,function (d) { return d.pct_wht })])
       .range([0, testWidth]);
 
-  var y = d3v4.scaleLinear()
+  if(isSafari) {
+    var y = d3v4.scaleLinear()
       .domain([0, max])
-      .range([testHeight, 0]);
+      .range([testHeight*0.80, 0]);
+  } else {
+    var y = d3v4.scaleLinear()
+      .domain([0, max])
+      .range([testHeight*0.90, 0]);
+  }
 
   var xAxis = d3v4.axisBottom(x)
       .tickSize(0)
@@ -4323,9 +4336,13 @@ function drawHistogram(){
       .ticks(6);
 
   var xGroup = grossChart.append("g")
-      .attr("transform", "translate(0," + (chart.node().offsetHeight - 10)+ ")")
+      .attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.90 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
+
+  if(isSafari) {
+    xGroup.attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.83 + ")");
+  }
 
   var yGroup = grossChart.append("g")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
@@ -4444,7 +4461,7 @@ function drawHistogram(){
       gX = testWidth*0.15;
     }
 
-    var xShift = Math.floor((window.innerWidth - testWidth) / 2) - gX;
+    xShift = Math.floor((window.innerWidth - testWidth) / 2) - gX;
 
     svg
       .attr('width', chartWidth + 'px')
@@ -4755,3 +4772,4 @@ drawHistogram();
 //   });
 //   console.log("finished");
 // }
+
