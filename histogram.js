@@ -26,7 +26,6 @@ function drawHistogram(){
             //   d3.csv("lines_data.csv", function(error, lineByLine) {
 
 
-    
     var mobileBubbleOffset = -20;
     var markerBubbleTopOffset = 34;
     var previewTopOffset = 59;
@@ -1195,7 +1194,7 @@ function drawHistogram(){
           nonWhiteSixty.style("opacity",0);
           whiteTen.style("opacity",0);
         }else{
-          whiteForty.transition().duration(durationAmount).delay(delayAmount).style("opacity",1).style("left",axisWidth*(0.4)+"px");
+          whiteForty.transition().duration(durationAmount).delay(delayAmount).style("opacity",).style("left",axisWidth*(0.4)+"px");
           nonWhiteSixty.transition().duration(durationAmount).delay(delayAmount).style("opacity",1).style("left",axisWidth*(0.6)+"px");
           whiteTen.transition().duration(durationAmount).delay(delayAmount).style("opacity",1).style("left",axisWidth*(0.1)+"px");
         }
@@ -1866,7 +1865,7 @@ function drawHistogram(){
           .attr("class","film-element")
           .style("background-color",function(d){
             if(stage==2){
-              return "rgba(0,0,0,0)";
+              return "rgba(0, 0, 0, 0.01)";
               // var color = d3.rgb(colorScaleContinuous(d.nonWhite_percent));
               // return color;
             }
@@ -2107,7 +2106,7 @@ function drawHistogram(){
         .style("width","80px")
         .style("text-align","right")
         .attr("class","histogram-two-axis-text tk-futura-pt")
-        .html("100% of Words<br>are nonWhite")
+        .html("100% of Words<br>are nonwhite")
         ;
 
       var whiteTen = histogramTwoAxis.append("div")
@@ -4476,7 +4475,7 @@ function drawHistogram(){
     }
 
     buffer
-      .style('height', Math.floor(window.innerHeight / 2) + 'px');
+      .style('height', container.node().offsetHeight*0.48 + 'px');
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
   }
