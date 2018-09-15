@@ -4266,13 +4266,11 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
-      .attr("transform", "translate(" + gX  + ",-" + gY + ")");
+    .attr("transform", "translate(" + testWidth*0.05 + ",0)");
 
   if(isSafari) {
-    grossChart.attr("transform", "translate(" + xShift*1.2 + ",-" + gY*0.23 + ")");
+    grossChart.attr("transform", "translate(" + xShift + ",0)");
   }
-
-
 
   var formatX = d3v4.format(".0f");
   var formatY = d3v4.format(".0f");
@@ -4294,17 +4292,11 @@ function drawHistogram(){
 
   var x = d3v4.scaleLinear()
       .domain([0, d3v4.max(usGross,function (d) { return d.pct_wht })])
-      .range([0, testWidth]);
+      .range([0, testWidth*0.92]);
 
-  if(isSafari) {
-    var y = d3v4.scaleLinear()
-      .domain([0, max])
-      .range([testHeight*0.80, 0]);
-  } else {
-    var y = d3v4.scaleLinear()
-      .domain([0, max])
-      .range([testHeight*0.90, 0]);
-  }
+  var y = d3v4.scaleLinear()
+    .domain([0, max])
+    .range([testHeight*0.90, 0]);
 
   var xAxis = d3v4.axisBottom(x)
       .tickSize(0)
@@ -4316,16 +4308,10 @@ function drawHistogram(){
       })
       .ticks(5);
 
-  var tickLength;
-
-  if(!mobile) {
-    tickLength = testWidth*0.96;
-  } else {
-    tickLength = testWidth*0.90;
-  }
+  var tickLength = testWidth*0.92;
 
   var yAxis = d3v4.axisRight(y)
-      .tickSize(tickLength + gX)
+      .tickSize(tickLength)
       .tickFormat(function(d) {
         var s = formatY(d / 1e6);
         return this.parentNode.nextSibling
@@ -4335,13 +4321,13 @@ function drawHistogram(){
       .ticks(6);
 
   var xGroup = grossChart.append("g")
-      .attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.90 + ")")
+      .attr("transform", "translate(0," + testHeight*0.95 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
 
-  if(isSafari) {
-    xGroup.attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.83 + ")");
-  }
+  // if(isSafari) {
+  //   xGroup.attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.83 + ")");
+  // }
 
   var yGroup = grossChart.append("g")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
@@ -4430,6 +4416,13 @@ function drawHistogram(){
 
   // generic window resize listener event
   function handleResize() {
+    if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    }
+
+    var smallMobile = false;
+
     // 1. update height of step elements
     var stepHeight = 158 + 'px';
     step
@@ -4441,41 +4434,48 @@ function drawHistogram(){
       .style('height', (container.node().offsetHeight*0.48) + 'px');
     var chartMargin = 32;
     var textWidth = text.node().offsetWidth;
-    var chartWidth = graphic.node().offsetWidth - chartMargin;
+    var chartWidth = 900;
+    if(mobile) {
+      chartWidth = viewportWidth*0.92;
+      if (viewportWidth < 325) { smallMobile = true; };
+      if(smallMobile) { width = 306 };
+    }
+
+    if(isSafari) {chartWidth = 1800;}
+    var chartHeight = 370;
     chart
       .style('width', chartWidth + 'px')
-      .style('height', Math.floor(window.innerHeight / 2.2) + 'px');
+      .style('height', chartHeight + 'px');
 
-    if(!mobile) {
-      testWidth = chartWidth*0.68;
+    if(isSafari && !mobile) {
+      testWidth = 900;
     } else {
-      testWidth = chartWidth*0.80;
+    testWidth = chartWidth;
     }
-    testHeight = Math.floor(window.innerHeight / 2.2)*.90;
+    testHeight = chartHeight;
 
-    gY = testHeight*0.05;
-    if(!mobile) {
-      gX = testWidth*0.05;
-    } else {
-      gX = testWidth*0.15;
-    }
+    // gY = testHeight*0.05;
+    // if(!mobile) {
+    //   gX = testWidth*0.05;
+    // } else {
+    //   gX = testWidth*0.15;
+    // }
 
-    xShift = Math.floor((window.innerWidth - testWidth) / 2) - gX;
+    xShift = Math.floor((window.innerWidth - testWidth) / 2);
 
     svg
       .attr('width', chartWidth + 'px')
-      .attr('height', Math.floor(window.innerHeight / 2) + 'px');
+      .attr('height', chartHeight + 'px');
 
-    if(!mobile) {
-      svg 
+     if(!isSafari) {
+      svg
         .attr('transform', 'translate(' + xShift + ',0)');
-    } else {
-      svg 
-        .attr('transform', 'translate(' + (xShift - 15) + ',0)');
-    }
+     } 
+
+
 
     buffer
-      .style('height', container.node().offsetHeight*0.43 + 'px');
+      .style('height', chartHeight + 'px');
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
   }
