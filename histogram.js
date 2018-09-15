@@ -22,7 +22,7 @@ function drawHistogram(){
       d3.csv("champebarton.github.io/character_list7.csv", function(error, characterData) {
         d3.csv("https://raw.githubusercontent.com/matthewfdaniels/scripts/graphs/meta_data7.csv", function(error, metaData) {
            d3.csv("champebarton.github.io/DisneyFilms3.csv", function(error, disneyFilms) {
-            d3.csv("usgross_mapping.csv", function(error, usGross) {
+            d3.csv("champebarton.github.io/usgross_mapping.csv", function(error, usGross) {
             //   d3.csv("lines_data.csv", function(error, lineByLine) {
 
 
