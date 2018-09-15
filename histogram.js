@@ -4444,14 +4444,14 @@ function drawHistogram(){
     var chartWidth = graphic.node().offsetWidth - chartMargin;
     chart
       .style('width', chartWidth + 'px')
-      .style('height', Math.floor(window.innerHeight / 2) + 'px');
+      .style('height', Math.floor(window.innerHeight / 2.2) + 'px');
 
     if(!mobile) {
       testWidth = chartWidth*0.68;
     } else {
       testWidth = chartWidth*0.80;
     }
-    testHeight = Math.floor(window.innerHeight / 2)*.90;
+    testHeight = Math.floor(window.innerHeight / 2.2)*.90;
 
     gY = testHeight*0.05;
     if(!mobile) {
@@ -4475,7 +4475,7 @@ function drawHistogram(){
     }
 
     buffer
-      .style('height', container.node().offsetHeight*0.48 + 'px');
+      .style('height', container.node().offsetHeight*0.43 + 'px');
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
   }
