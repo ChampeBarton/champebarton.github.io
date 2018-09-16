@@ -4275,6 +4275,7 @@ function drawHistogram(){
   }
 
   if(mobile) {
+    grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")")
     grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
