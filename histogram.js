@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#f44242" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
@@ -4266,7 +4266,7 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
-    .attr("transform", "translate(" + testWidth*0.05 + ",0)");
+    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + "0)");
 
   if(isSafari) {
     grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
@@ -4451,14 +4451,13 @@ function drawHistogram(){
     var chartMargin = 32;
     var textWidth = text.node().offsetWidth;
     var chartWidth = 900;
-    var mobileSafariWidth;
     if(mobile) {
       chartWidth = viewportWidth*0.92;
       if (viewportWidth < 325) { smallMobile = true; };
       if(smallMobile) { chartWidth = 306 };
     }
 
-    mobileSafariWidth = chartWidth;
+    var safariWidth = chartWidth;
 
     if(isSafari) {chartWidth = window.innerWidth;}
     var chartHeight = 370;
@@ -4466,10 +4465,8 @@ function drawHistogram(){
       .style('width', chartWidth + 'px')
       .style('height', chartHeight + 'px');
 
-    if(isSafari && !mobile) {
-      testWidth = 900;
-    } else if(isSafari && mobile){
-      testWidth = mobileSafariWidth;
+    if(isSafari) {
+      testWidth = safariWidth;
     } else {
       testWidth = chartWidth;
     }
