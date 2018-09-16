@@ -2245,7 +2245,6 @@ text {
 .gross-chart {
     display: flex;
     position: absolute;
-    right: 1rem;
     top: 50%;
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
