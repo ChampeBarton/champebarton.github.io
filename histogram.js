@@ -4266,14 +4266,15 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
-    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
+    .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
   if(isSafari) {
     grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
-    grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
+    grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4481,11 +4482,11 @@ function drawHistogram(){
 
     xShift = Math.floor((window.innerWidth - testWidth) / 2);
     yShift = -30;
-    
-    if(mobile) {
-      xShift = Math.floor(window.innerWidth - testWidth);
-      yShift = -60;
-    }
+
+    // if(mobile) {
+    //   xShift = Math.floor(window.innerWidth - testWidth);
+    //   yShift = -60;
+    // }
 
     svg
       .attr('width', chartWidth + 'px')
@@ -4493,7 +4494,8 @@ function drawHistogram(){
 
      if(!isSafari) {
       svg
-        .attr('transform', 'translate(' + xShift + ',' + yShift +')');
+        .attr('transform', 'translate(' + xShift + ',' + yShift +')')
+        .attr('webkit-transform', 'translate(' + xShift + ',' + yShift +')');
      } 
 
     buffer
