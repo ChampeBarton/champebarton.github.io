@@ -25,7 +25,6 @@ function drawHistogram(){
             d3.csv("champebarton.github.io/usgross_mapping.csv", function(error, usGross) {
             //   d3.csv("lines_data.csv", function(error, lineByLine) {
 
-
     var mobileBubbleOffset = -20;
     var markerBubbleTopOffset = 34;
     var previewTopOffset = 59;
@@ -4208,14 +4207,14 @@ function drawHistogram(){
           ;
 
       ageChart.append("g")
-	      .attr("class", "x axis tk-futura-pt")
-	      .attr("transform", "translate("+margin.left+"," + height + ")")
-	      .call(xAxis)
+        .attr("class", "x axis tk-futura-pt")
+        .attr("transform", "translate("+margin.left+"," + height + ")")
+        .call(xAxis)
         ;
 
       ageChart.append("g")
-	      .attr("class", "x-axis-label tk-futura-pt")
-	      .attr("transform", "translate("+80+"," + (height+18) + ")")
+        .attr("class", "x-axis-label tk-futura-pt")
+        .attr("transform", "translate("+80+"," + (height+18) + ")")
         .append("text")
         .text("years-old")
         ;
@@ -4262,6 +4261,7 @@ function drawHistogram(){
   var gX;
   var gY;
   var xShift;
+  var yShift;
 
   handleResize();
 
@@ -4269,7 +4269,11 @@ function drawHistogram(){
     .attr("transform", "translate(" + testWidth*0.05 + ",0)");
 
   if(isSafari) {
-    grossChart.attr("transform", "translate(" + (xShift + 40) + ",0)");
+    grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+  }
+
+  if(mobile) {
+    grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4290,13 +4294,20 @@ function drawHistogram(){
 
   var max = d3v4.max(usGross, (function (d) {return d.us_gross}));
 
-  var x = d3v4.scaleLinear()
+  if(!mobile) {
+    var x = d3v4.scaleLinear()
       .domain([0, d3v4.max(usGross,function (d) { return d.pct_wht })])
       .range([0, testWidth*0.92]);
+  } else {
+      var x = d3v4.scaleLinear()
+        .domain([0, d3v4.max(usGross,function (d) { return d.pct_wht })])
+        .range([0, testWidth*0.85]);
+    }
 
   var y = d3v4.scaleLinear()
     .domain([0, max])
     .range([testHeight*0.90, 0]);
+    
 
   var xAxis = d3v4.axisBottom(x)
       .tickSize(0)
@@ -4308,7 +4319,12 @@ function drawHistogram(){
       })
       .ticks(5);
 
-  var tickLength = testWidth*0.92;
+  if(!mobile) {
+    var tickLength = testWidth*0.92;
+  } else {
+    var tickLength = testWidth*0.85;
+  }
+  
 
   var yAxis = d3v4.axisRight(y)
       .tickSize(tickLength)
@@ -4430,16 +4446,19 @@ function drawHistogram(){
     // 2. update width/height of graphic element
     var bodyWidth = d3v4.select('body').node().offsetWidth;
     graphic
-      .style('width', bodyWidth + 'px')
-      .style('height', (container.node().offsetHeight*0.48) + 'px');
+      .style('width', bodyWidth + 'px');
+      //.style('height', (container.node().offsetHeight*0.48) + 'px');
     var chartMargin = 32;
     var textWidth = text.node().offsetWidth;
     var chartWidth = 900;
+    var mobileSafariWidth;
     if(mobile) {
       chartWidth = viewportWidth*0.92;
       if (viewportWidth < 325) { smallMobile = true; };
-      if(smallMobile) { width = 306 };
+      if(smallMobile) { chartWidth = 306 };
     }
+
+    mobileSafariWidth = chartWidth;
 
     if(isSafari) {chartWidth = window.innerWidth;}
     var chartHeight = 370;
@@ -4449,8 +4468,10 @@ function drawHistogram(){
 
     if(isSafari && !mobile) {
       testWidth = 900;
+    } else if(isSafari && mobile){
+      testWidth = mobileSafariWidth;
     } else {
-    testWidth = chartWidth;
+      testWidth = chartWidth;
     }
     testHeight = chartHeight;
 
@@ -4462,6 +4483,7 @@ function drawHistogram(){
     // }
 
     xShift = Math.floor((window.innerWidth - testWidth) / 2);
+    yShift = -30;
 
     svg
       .attr('width', chartWidth + 'px')
@@ -4469,10 +4491,8 @@ function drawHistogram(){
 
      if(!isSafari) {
       svg
-        .attr('transform', 'translate(' + xShift + ',0)');
+        .attr('transform', 'translate(' + xShift + ',' + yShift +')');
      } 
-
-
 
     buffer
       .style('height', chartHeight + 'px');
