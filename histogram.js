@@ -4269,9 +4269,10 @@ function drawHistogram(){
     .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
     .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
-  if(isSafari) {
+  if(isSafari && !mobile) {
     grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")")
-    grossChart.attr("webkittransform", "translate(" + (xShift + 40) + "," + yShift + ")");
+  } else if(isSafari && mobile) {
+    grossChart.attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
