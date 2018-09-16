@@ -2222,9 +2222,9 @@ text {
     right: auto;
     left: auto;
     bottom: auto;
-    background-color: #fff;
+    background-color: #00000000;
     width: 80%;
-    height: 500px;
+    height: 450px;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -2233,13 +2233,14 @@ text {
 
 .scroll__graphic.is-fixed {
     position: fixed;
-    background: linear-gradient(rgba(255,255,255,1) 88%, rgba(255,255,255,0));
-    background: -webkit-linear-gradient(rgba(255,255,255,1) 88%, rgba(255,255,255,0));
+    background: linear-gradient(rgba(255,255,255,1) 370px, rgba(255,255,255,0));
+    background: -webkit-linear-gradient(rgba(255,255,255,1) 390px, rgba(255,255,255,0));
 }
 
 .scroll__graphic.is-bottom {
     bottom: 0;
     top: auto;
+    background-color: #fff;
 }
 
 .gross-chart {
