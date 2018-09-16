@@ -4270,7 +4270,8 @@ function drawHistogram(){
     .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
   if(isSafari) {
-    grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+    grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")")
+    grossChart.attr("webkittransform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
@@ -4339,6 +4340,7 @@ function drawHistogram(){
 
   var xGroup = grossChart.append("g")
       .attr("transform", "translate(0," + testHeight*0.95 + ")")
+      .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
 
