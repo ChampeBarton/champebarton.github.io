@@ -4269,7 +4269,7 @@ function drawHistogram(){
     .attr("transform", "translate(" + testWidth*0.05 + ",0)");
 
   if(isSafari) {
-    grossChart.attr("transform", "translate(" + xShift + ",0)");
+    grossChart.attr("transform", "translate(" + (xShift + 40) + ",0)");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4441,7 +4441,7 @@ function drawHistogram(){
       if(smallMobile) { width = 306 };
     }
 
-    if(isSafari) {chartWidth = 1800;}
+    if(isSafari) {chartWidth = window.innerWidth;}
     var chartHeight = 370;
     chart
       .style('width', chartWidth + 'px')
@@ -4771,4 +4771,3 @@ drawHistogram();
 //   });
 //   console.log("finished");
 // }
-
