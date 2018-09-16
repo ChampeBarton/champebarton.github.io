@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#f44242" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
@@ -4481,6 +4481,11 @@ function drawHistogram(){
 
     xShift = Math.floor((window.innerWidth - testWidth) / 2);
     yShift = -30;
+    
+    if(mobile) {
+      xShift = Math.floor(window.innerWidth - testWidth);
+      yShift = -60;
+    }
 
     svg
       .attr('width', chartWidth + 'px')
