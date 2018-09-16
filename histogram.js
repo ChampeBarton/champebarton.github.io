@@ -4266,7 +4266,7 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
-    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + "0)");
+    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
   if(isSafari) {
     grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
@@ -4482,10 +4482,10 @@ function drawHistogram(){
     xShift = Math.floor((window.innerWidth - testWidth) / 2);
     yShift = -30;
     
-    if(mobile) {
-      xShift = Math.floor(window.innerWidth - testWidth);
-      yShift = -60;
-    }
+//     if(mobile) {
+//       xShift = Math.floor(window.innerWidth - testWidth);
+//       yShift = -60;
+//     }
 
     svg
       .attr('width', chartWidth + 'px')
