@@ -4482,10 +4482,10 @@ function drawHistogram(){
     xShift = Math.floor((window.innerWidth - testWidth) / 2);
     yShift = -30;
     
-//     if(mobile) {
-//       xShift = Math.floor(window.innerWidth - testWidth);
-//       yShift = -60;
-//     }
+    if(mobile) {
+      xShift = Math.floor(window.innerWidth - testWidth);
+      yShift = -60;
+    }
 
     svg
       .attr('width', chartWidth + 'px')
