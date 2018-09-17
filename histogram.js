@@ -4265,21 +4265,22 @@ function drawHistogram(){
 
   handleResize();
 
-  var grossChart = svg.append("g").attr("ms-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
-  grossChart.attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
-  grossChart.attr("moz-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
-  grossChart.attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+  var grossChart = svg.append("g")
+    .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+//   grossChart.attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+//   grossChart.attr("moz-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+//   grossChart.attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
   if(isSafari) {
-      grossChart.attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+//       grossChart.attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")");
       grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
       grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
-      grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
-      grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
-      grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
+//       grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
+//       grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
+//       grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4343,9 +4344,9 @@ function drawHistogram(){
       .ticks(6);
 
   var xGroup = grossChart.append("g")
-      .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
-      .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
-      .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
+//       .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
+//       .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
+//       .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
       .attr("transform", "translate(0," + testHeight*0.95 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
@@ -4502,10 +4503,10 @@ function drawHistogram(){
 
      if(!isSafari) {
         svg
-          .attr('webkit-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
-          .attr('moz-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
-          .attr('ms-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
-          .attr('transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')');
+          .attr('webkit-transform', 'translate(' + xShift + ',' + yShift + ')');
+//           .attr('moz-transform', 'translate(' + xShift + ',' + yShift + ')')
+//           .attr('ms-transform', 'translate(' + xShift + ',' + yShift + ')')
+//           .attr('transform', 'translate(' + xShift + ',' + yShift + ')');
      } 
 
     buffer
