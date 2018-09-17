@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#000000" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
@@ -4266,17 +4266,21 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
+    .attr("-ms-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
+    .attr("-webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
+    .attr("-moz-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
     .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
-  if(isSafari && !mobile) {
-    grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")")
-  } else if(isSafari && mobile) {
-    grossChart.attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+  if(isSafari) {
+    grossChart.attr("-webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")")
+    grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
-    grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
-    //grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
+    grossChart.attr("-webkit-transform", "translate(" + 33.5 + "," + 4 + ")")
+    grossChart.attr("-ms-transform", "translate(" + 33.5 + "," + 4 + ")")
+    grossChart.attr("-moz-transform", "translate(" + 33.5 + "," + 4 + ")")
+    grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4497,8 +4501,10 @@ function drawHistogram(){
 
      if(!isSafari) {
       svg
-        .attr('transform', 'translate(' + xShift + ',' + yShift +')')
-        .attr('webkit-transform', 'translate(' + xShift + ',' + yShift +')');
+        .attr('-webkit-transform', 'translate(' + xShift + ',' + yShift +')')
+        .attr('-moz-transform', 'translate(' + xShift + ',' + yShift +')')
+        .attr('-ms-transform', 'translate(' + xShift + ',' + yShift +')')
+        .attr('transform', 'translate(' + xShift + ',' + yShift +')');
      } 
 
     buffer
