@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#000000" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
