@@ -4265,24 +4265,21 @@ function drawHistogram(){
 
   handleResize();
 
-  var grossChart = svg.append("g")
-    .attr("ms-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
-    .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
-    .attr("moz-transform", "translate(" + testWidth*0.05 + "," + 4 + ")")
-    .attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+  var grossChart = svg.append("g").attr("ms-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+  grossChart.attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+  grossChart.attr("moz-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+  grossChart.attr("transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
 
   if(isSafari) {
-    grossChart
-      .attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")")
-      .attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+      grossChart.attr("webkit-transform", "translate(" + (xShift + 40) + "," + yShift + ")");
+      grossChart.attr("transform", "translate(" + (xShift + 40) + "," + yShift + ")");
   }
 
   if(mobile) {
-    grossChart
-      .attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")")
-      .attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")")
-      .attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")")
-      .attr("transform", "translate(" + 33.5 + "," + 4 + ")");
+      grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
+      grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
+      grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
+      grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
   }
 
   var formatX = d3v4.format(".0f");
@@ -4504,11 +4501,10 @@ function drawHistogram(){
       .attr('height', chartHeight + 'px');
 
      if(!isSafari) {
-      svg
-        .attr('webkit-transform', 'translate(' + xShift + ',' + yShift +')')
-        .attr('moz-transform', 'translate(' + xShift + ',' + yShift +')')
-        .attr('ms-transform', 'translate(' + xShift + ',' + yShift +')')
-        .attr('transform', 'translate(' + xShift + ',' + yShift +')');
+        svg.attr('webkit-transform', 'translate(' + xShift + ',' + yShift +')');
+        svg.attr('moz-transform', 'translate(' + xShift + ',' + yShift +')');
+        svg.attr('ms-transform', 'translate(' + xShift + ',' + yShift +')');
+        svg.attr('transform', 'translate(' + xShift + ',' + yShift +')');
      } 
 
     buffer
