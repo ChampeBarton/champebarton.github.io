@@ -4266,7 +4266,7 @@ function drawHistogram(){
   handleResize();
 
   var grossChart = svg.append("g")
-    .attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
+    //.attr("webkit-transform", "translate(" + testWidth*0.05 + "," + 4 + ")");
               
   if(!mobile) {
     grossChart
@@ -4281,7 +4281,7 @@ function drawHistogram(){
   }
 
   if(mobile) {
-      grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 100 + ")");
+      grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
@@ -4497,7 +4497,7 @@ function drawHistogram(){
       xShift = Math.floor((window.innerWidth - testWidth) / 2);
       yShift = -30;
     } else {
-      xShift = Math.floor((window.innerWidth - testWidth) / 2) - 10;
+      xShift = Math.floor((window.innerWidth - testWidth) / 2) - 7;
       yShift = -30;
     }
 
