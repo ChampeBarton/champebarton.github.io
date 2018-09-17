@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#000000" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
@@ -4281,7 +4281,7 @@ function drawHistogram(){
   }
 
   if(mobile) {
-      grossChart.attr("webkit-transform", "translate(" + 32.5 + "," + 6 + ")");
+      grossChart.attr("webkit-transform", "translate(" + 25.5 + "," + 10 + ")");
 //       grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
