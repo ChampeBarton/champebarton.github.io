@@ -4347,14 +4347,20 @@ function drawHistogram(){
       })
       .ticks(6);
 
-  var xGroup = grossChart.append("g")
+  if(!mobile) {
+    var xGroup = grossChart.append("g")
 //       .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
-//       .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
-//       .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
+      .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
+      .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
       .attr("transform", "translate(0," + testHeight*0.95 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
-
+  } else {
+     var xGroup = grossChart.append("g")
+        .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
+        .attr("class", "age-chart-distribution-percent tk-futura-pt")
+        .call(customXAxis); 
+  }
   // if(isSafari) {
   //   xGroup.attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.83 + ")");
   // }
