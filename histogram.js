@@ -187,7 +187,7 @@ function drawHistogram(){
     });
 
     var values = [];
-    var nonWhiteColor = "#000000" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
+    var nonWhiteColor = "#3ecdfd" // var nonWhiteColor = "#E0451F" nonWhiteColor = "#FA0E4F"
     var whiteColor = "#fecb45" //var whiteColor = "#2161FA" #18638B var whiteColor = "#249EFB" //var whiteColor = "#2161FA"
 
     movieData = scriptNest;
@@ -4501,10 +4501,11 @@ function drawHistogram(){
       .attr('height', chartHeight + 'px');
 
      if(!isSafari) {
-        svg.attr('webkit-transform', 'translate(' + xShift + ',' + yShift +')');
-        svg.attr('moz-transform', 'translate(' + xShift + ',' + yShift +')');
-        svg.attr('ms-transform', 'translate(' + xShift + ',' + yShift +')');
-        svg.attr('transform', 'translate(' + xShift + ',' + yShift +')');
+        svg
+          .attr('webkit-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
+          .attr('moz-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
+          .attr('ms-transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')')
+          .attr('transform', 'translate(' + xShift + 'px' + ',' + yShift + 'px' + ')');
      } 
 
     buffer
