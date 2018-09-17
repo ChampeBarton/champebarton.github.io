@@ -4281,7 +4281,7 @@ function drawHistogram(){
   }
 
   if(mobile) {
-      grossChart.attr("webkit-transform", "translate(" + 33.5 + "," + 4 + ")");
+      grossChart.attr("webkit-transform", "translate(" + 32.5 + "," + 6 + ")");
 //       grossChart.attr("ms-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("moz-transform", "translate(" + 33.5 + "," + 4 + ")");
 //       grossChart.attr("transform", "translate(" + 33.5 + "," + 4 + ")");
@@ -4347,20 +4347,14 @@ function drawHistogram(){
       })
       .ticks(6);
 
-  if(!mobile) {
     var xGroup = grossChart.append("g")
 //       .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
-      .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
-      .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
+//       .attr("moz-transform", "translate(0," + testHeight*0.95 + ")")
+//       .attr("ms-transform", "translate(0," + testHeight*0.95 + ")")
       .attr("transform", "translate(0," + testHeight*0.95 + ")")
       .attr("class", "age-chart-distribution-percent tk-futura-pt")
       .call(customXAxis);
-  } else {
-     var xGroup = grossChart.append("g")
-        .attr("webkit-transform", "translate(0," + testHeight*0.95 + ")")
-        .attr("class", "age-chart-distribution-percent tk-futura-pt")
-        .call(customXAxis); 
-  }
+
   // if(isSafari) {
   //   xGroup.attr("transform", "translate(0," + (chart.node().offsetHeight - 10)*0.83 + ")");
   // }
